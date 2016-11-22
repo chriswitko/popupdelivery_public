@@ -1,0 +1,76 @@
+<div class="form-group mt15">
+  <h4 class="mt0 mb15"><strong>Select exisiting segment or create new one...</strong></h4>
+  <div class="panel panel-default">
+    <div class="panel-body bg-highlight">
+      <div class="row">
+        <div class="col-lg-3">
+          <table width="100%">
+            <tr>
+              <td width="100%">
+                <select ng-model="segment.source" class="form-control">
+                  <option value="">Select segment from the list</option>
+                  <option value="@new" >-- Create new one --</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-group" ng-if="segment.source === '@new'">
+  <h4 class="mt0 mb15">
+    <strong>Define new segment...</strong>
+  </h4>
+  <div class="panel panel-default bg-highlight" ng-repeat="rule in studioWhoVm.rules track by $index">
+    <div class="panel-body">
+      <div class="row row-segment-filter" ng-repeat="rule_or in rule.or track by $index">
+        <div class="col-lg-3">
+          <table width="100%">
+            <tr>
+              <td width="100%">
+                <select ng-model="rule_or.field" class="form-control" ng-change="studioWhoVm.applyDefaults(rule_or)">
+                  <option value="">Define a rule based on...</option>
+                  <option value="{{field.name}}" ng-repeat="field in studioWhoVm.customerFields track by $index">{{field.title}}</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-lg-2" ng-if="rule_or.field">
+          <select ng-model="rule_or.condition" class="form-control" ng-disabled="rule_or.disabledByDefault">
+            <option value="containes">containes</option>
+            <option value="matches_exactly">matches exactly</option>
+            <option value="equals">equals</option>
+            <option value="greather_then">greather then</option>
+            <option value="less_then">less then</option>
+            <option value="any">has any value</option>
+          </select>
+        </div>
+        <div class="col-lg-3" ng-if="rule_or.field">
+          <!--<input type="text" ng-model="rule_or.value" class="form-control" ng-if="rule_or.condition !== 'any'" placeholder="Enter a value"/>-->
+          <ui-select ng-model="selected.value">
+            <ui-select-match placeholder="Select a segment">
+              <span ng-bind="$select.selected.name"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+              <span ng-bind="item.name"></span>
+            </ui-select-choices>
+            <ui-select-no-choice>
+              Dang!  We couldn't find any choices...
+            </ui-select-no-choice>                        
+          </ui-select>
+        </div>
+        <div class="col-lg-4 align-left" ng-if="rule_or.field">
+          <button type="button" href class="btn" ng-disabled="$index < rule.or.length - 1" ng-class="{'btn-default': $index < rule.or.length - 1, 'btn-primary': $index >= rule.or.length - 1}" ng-click="studioWhoVm.addOr(rule)"><i class="fa fa-fw" ng-class="{'fa-check': $index < rule.or.length - 1, 'fa-plus-circle': $index >= rule.or.length - 1}"></i> OR</button>
+          <button type="button" href class="btn btn-link color-steel" ng-if="$index > 0" ng-click="studioWhoVm.removeOr(rule, $index)"><i class="fa fa-fw fa-trash"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body pt0">
+      <button type="button" href ng-disabled="$index < studioWhoVm.rules.length - 1" class="btn" ng-class="{'btn-default': $index < studioWhoVm.rules.length - 1, 'btn-primary': $index >= studioWhoVm.rules.length - 1}" ng-click="studioWhoVm.addAnd()"><i class="fa fa-fw" ng-class="{'fa-check': $index < studioWhoVm.rules.length - 1, 'fa-plus-circle': $index >= studioWhoVm.rules.length - 1}"></i> AND </button>
+      <button type="button" href class="btn btn-link color-steel" ng-if="$index > 0" ng-click="studioWhoVm.removeAnd($index)"><i class="fa fa-fw fa-trash"></i></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<style>
+	.form-group:last-child {
+		margin-bottom: 0!important;
+	} 
+</style>
+{{#ifCond app.design.format '==' 'form'}}
+  {{#if app.design.title}}
+  <div class="form-group lead-title" style="{{#if app.design.image_url}}margin-top:20px{{/if}}">
+    <h5 class="m0">{{app.design.title}}</h5>
+  </div>
+  {{/if}}
+  {{#ifCond app.design.fields.email '||' app.design.summary}}
+  <div class="empty" style="padding:10px;{{#if app.design.image_url}}margin-top:20px{{/if}}">
+    <div class="clearfix lead-view-front">
+      {{#if app.design.summary}}
+      <div class="form-group" style="margin-bottom:10px;">
+        <p class="m0" align="center" style="text-align:center">
+          {{app.design.summary}}
+        </p>
+      </div>
+      {{/if}}
+      {{#if app.design.fields.name}}
+      <div class="form-group">
+        <label class="form-label" for="name" i18n="n_fullname_html"></label>
+        <input class="form-input input-lg" type="text" id="name" name="name" autocomplete="off" i18n="n_fullname_placeholder" placeholder="" value="" />
+      </div>
+      {{/if}}
+      {{#if app.design.fields.email}}
+      <div class="form-group">
+        <label class="form-label" for="email"><strong i18n="n_email_html"></strong></label>
+        <input class="form-input input-lg" type="email" id="email" name="email" autocomplete="off" i18n="n_email_placeholder" placeholder="" value="" />
+      </div>
+      {{/if}}
+      {{#if app.design.fields.gender}}
+      <div class="form-group">
+        <label class="form-label" i18n="n_gender_html"></label>
+        <label class="form-radio">
+          <input type="radio" name="gender" id="gender" value="female" />
+          <i class="form-icon"></i> <span i18n="n_gender_female_html"></span>
+        </label>
+        <label class="form-radio">
+          <input type="radio" name="gender" id="gender" value="male"/>
+          <i class="form-icon"></i> <span i18n="n_gender_male_html"></span>
+        </label>
+      </div>
+      {{/if}}
+      {{#if app.design.button_submit}}
+      <div class="form-group lead-action">
+        {{#if app.design.button_submit}}
+        <button 
+        type="button" 
+        class="btn btn-lg btn-primary btn-submit" 
+        {{#unless demo}}
+            onclick="sendData()"
+        {{/unless}}
+        >{{app.design.button_submit}}</button>
+        {{/if}}
+      </div>
+      {{/if}}
+      {{#if app.design.footer}}
+      <div class="form-group lead-footer">
+        <p class="m0">{{app.design.footer}}</p>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/ifCond}}
+{{/ifCond}}
+

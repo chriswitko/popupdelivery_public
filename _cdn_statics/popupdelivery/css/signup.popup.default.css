@@ -1,0 +1,46 @@
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+.lead-img {
+  margin-bottom: 20px;
+  height: auto;
+  overflow: hidden;
+}
+
+.lead-title {
+  text-align: center!important;
+  margin-bottom: 20px;
+}
+
+.lead-title h2 {
+  font-weight: 700!important;
+}
+
+.lead-summary {
+  text-align: left;
+  margin-bottom: 30px!important;
+}
+
+.lead-footer {
+  text-align: left;
+}
+
+.lead-action {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px!important;
+}
+
+.lead-action .btn:first-child {
+  margin-right: 10px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  text-align: left;
+}

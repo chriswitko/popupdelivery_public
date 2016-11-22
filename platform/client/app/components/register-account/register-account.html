@@ -1,0 +1,53 @@
+<navs></navs>
+
+<div class="container-fluid">
+  <div class="container">
+    <h1 class="fw900 fs6"><span translate="main.registeraccount.name"></span><span class="color-pink-light">.</span></h1>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container container-fixed">
+
+    <div class="row pt40">
+      <div class="col-lg-6">
+        <div class="b-rounded shadow-close b-bordered shadow-emboss bg-light intro">
+          <form name="accountForm" novalidate class="mb0 p30">
+            <div class="form-group">
+              <label class="pull-left" for="first_name" translate="main.registeraccount.firstname"></label>
+              <input type="text" required autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="first_name" placeholder="{{ 'main.registeraccount.firstname_placeholder' | translate }}" ng-model="registerAccountVm.user.first_name">
+            </div>
+            <div class="form-group">
+              <label class="pull-left" for="last_name" translate="main.registeraccount.lastname"></label>
+              <input type="text" required autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="last_name" placeholder="{{ 'main.registeraccount.lastname_placeholder' | translate }}" ng-model="registerAccountVm.user.last_name">
+            </div>
+            <div class="form-group">
+              <label class="pull-left" for="website" translate="main.registeraccount.website"></label>
+              <input type="text" required autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="website" placeholder="{{ 'main.registeraccount.website_placeholder' | translate }}" ng-model="registerAccountVm.user.website">
+            </div>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="pull-left" for="password" translate="main.registeraccount.createyourpassword"></label>
+                  <input type="password" required class="form-control input-lg" id="password" placeholder="{{ 'main.registeraccount.password_placeholder' | translate }}" ng-model="registerAccountVm.user.password">
+                  <p class="small mt5"><strong translate="main.registeraccount.note">:</strong> <span translate="main.registeraccount.note_minimum"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox mb30">
+              <label>
+                <input type="checkbox" ng-model="registerAccountVm.agreed" required> <span translate="main.registeraccount.iagree"></span>
+              </label>
+            </div>          
+            <div class="clearfix group-buttons">
+              <a class="btn btn-lg btn-primary green-button green-button--active mb20" ng-click="registerAccountVm.createAccount()" ng-disabled="accountForm.$invalid" translate="main.registeraccount.btn_create"></a>
+            </div>
+            <tagline-get-started></tagline-get-started>
+          </form>
+        </div>
+      </div>
+    </div>  
+
+    <footer></footer>
+  </div>
+</div>

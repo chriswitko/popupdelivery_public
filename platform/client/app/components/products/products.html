@@ -1,0 +1,45 @@
+<!--<navs></navs>
+
+<div class="container-fluid bg-highlight mb20 pt20">
+  <div class="container">
+    <div class="col-lg-12 intro align-left p0 mb30">
+      <h1 class="fw900 fs6 m0"><span translate="main.dashboard.name"></span><span class="color-pink-light">.</span></h1>
+    </div>
+    <div class="col-lg-12 intro align-left p0">
+      <dashboard-nav></dashboard-nav>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div ui-view></div>
+
+  <footer></footer>
+</div>-->
+
+
+<div class="flexi" style="flex-direction:column;width:100%;display:flex;">
+  <div class="module-header bg-highlight">
+    <ul class="list-unstyled list-inline list-internal-nav mb0">
+      <li>
+        <a href class="badge" style="font-size:16px;line-height:22px;" ui-sref="products.overview">Products</a>
+      </li>
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="products.overview">Overview</a>
+      </li>
+      <!--<li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="products.list">All</a>
+      </li>-->
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="products.segments"><i class="fa fa-fw fa-filter"></i> Segments</a>
+      </li>
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="products.import"><i class="fa fa-fw fa-cloud-upload"></i> Import</a>
+      </li>
+    </ul>
+  </div>
+
+  <div style="width:100%;height:100%;flex:1;overflow-y:scroll;">
+    <div ui-view></div>
+  </div>
+</div>

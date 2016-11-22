@@ -1,0 +1,40 @@
+<script type="text/ng-template" id="myPopoverTemplate.html">
+  <ul class="list-unstyled list-popup-menu">
+    <li>
+      <a href ui-sref="settings.personal" class="color-gray">My Settings</a>
+    </li>
+    <li>
+      <a href ui-sref="settings.billing" class="color-gray">Billing</a>
+    </li>
+    <li>
+      <a href class="color-gray">Installation code...</a>
+    </li>
+    <li class="list-popup-menu-hr"><hr/></li>
+    <li>
+      <a href ng-click="dashboardVm.logout()" class="color-gray"><i class="fa fa-fw fa-times"></i> Log out</a>
+    </li>
+  </ul>
+</script>
+
+<div id="container">
+  <div class="main-content">
+    <div class="sidebar bg-slate">
+      <div class="sidebar-top">
+        <div class="sidebav-nav-button shadow-distant b-rounded" ui-sref-active="active">
+          <a href ui-sref="home.index">
+            <img ng-src="/assets/logo_1_200.png" class="active_logo img-responsive img-rounded" style="padding:5px;">
+            <img ng-src="/assets/logo_1_200_bw.png" class="deactive_logo img-responsive img-rounded" style="padding:5px;">
+          </a>
+        </div>
+        <div class="sidebav-nav-button shadow-emboss2 bg-purple-light b-nav b-rounded" ui-sref-active="active"><a href ui-sref="popups.overview" class="btns btn btn-lg btn-block color-white" uib-tooltip="Product Popups" tooltip-placement="right"><i class="fa fa-0x fa-window-restore"></i></a></div>
+        <div class="sidebav-nav-button shadow-emboss2 bg-green-light b-nav b-rounded" ui-sref-active="active"><a href ui-sref="reminder.overview" class="btns btn btn-lg btn-block color-white" uib-tooltip="Product Reminder" tooltip-placement="right"><i class="fa fa-0x fa-window-minimize"></i></a></div>
+        <div class="sidebav-nav-button shadow-emboss2 b-nav b-rounded" ui-sref-active="active"><a href ui-sref="customers.overview" class="btn btn-lg btn-block color-silver" uib-tooltip="Customers" tooltip-placement="right"><i class="fa fa-0x fa-drivers-license-o"></i></a></div>
+        <div class="sidebav-nav-button shadow-emboss2 b-nav b-rounded" ui-sref-active="active"><a href ui-sref="products.overview" class="btn btn-lg btn-block color-silver" uib-tooltip="Products" tooltip-placement="right"><i class="fa fa-0x fa-shopping-bag"></i></a></div>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="sidebav-nav-button shadow-emboss b-nav bg-steel b-rounded"><a href class="btn btn-lg btn-block color-silver" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" uib-popover-template="dashboardVm.dynamicPopover.templateUrl" popover-placement="top-left" popover-trigger="'focus'"><i class="fa fa-cog"></i></a></div>
+      </div>
+    </div>
+    <ui-view class="flexi"></ui-view>
+  </div>
+</div>

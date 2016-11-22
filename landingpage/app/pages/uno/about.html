@@ -1,0 +1,12 @@
+<!-- index.nunjucks -->
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>This is the about page</h1>
+
+<!-- Adds the navigation partial -->
+{% import 'macros/navigation.html' as nav %}
+
+{{nav.active('about', translate)}}
+
+{% endblock %}

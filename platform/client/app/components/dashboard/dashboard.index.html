@@ -1,0 +1,156 @@
+<div class="" style="display:flex;flex-direction:column;width:100%;">
+  <dashboard-nav></dashboard-nav>
+
+  <div class="container-fluid pb20" style="border-bottom:1px solid #d5d5d5;">
+    <div class="container">
+      <div class="clearfix mb10">
+        <div class="clearfix">
+          <div class="pull-left">    
+            <h2 class="fw900" translate2="main.dashboard.overview">Good Morning, Chris!</h2>
+          </div>
+        </div>
+        <div class="clearfix">
+          <div class="pull-left">
+            <h4 class="m0">Today you already have <span class="bg-yellow-light" style="padding-left:3px;padding-right:3px;">23 views</span> of your popups.</h4>
+          </div>
+          <div class="pull-right">
+            <h4 class="m0"><a href class="color-slate"><i class="fa fa-fw fa-plus"></i> Create new Popup</a></h4>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+  <div class="content" style="display:block;height:100%;flex:1;display:flex;">
+    <div id="list">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">    
+            <div class="col-lg-12">
+              <status></status>
+              
+              <trial-ends></trial-ends>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!--<div class="container-fluid">
+        <div class="container">
+          <div class="clearfix mb10">    
+            <h1 class="fw900" translate="main.dashboard.your_apps"></h1>
+          </div>
+        </div>
+      </div>
+
+      <start></start>-->
+
+      <dashboard-stats></dashboard-stats>
+
+      <div class="container-fluid">
+        <div class="container">
+          <div class="cleafix pb20" style="border-top:3px solid #29EB7F;">
+            <div class="clearfix mb10 pb20">    
+              <h2 class="lh1">Currently <span class="bg-yellow-light" style="padding-left:3px;padding-right:3px;">14 visitors</span> are using Product Reminder, following <span class="bg-yellow-light" style="padding-left:3px;padding-right:3px;">20 products</span> and generating <span class="bg-yellow-light" style="padding-left:3px;padding-right:3px;">43 clicks</span>.</h2>
+            </div>
+            <div class="clearfix">
+              <img class="img-responsive" width="100%" src="/assets/s_graph.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mb20" ng-if="dashboardVm.labels.length">
+        <div class="container">
+          <canvas id="bar" class="chart chart-line" chart-data="dashboardVm.data" chart-labels="dashboardVm.labels" chart-series="dashboardVm.series" chart-options="dashboardVm.options" chart-dataset-override="dashboardVm.override" ></canvas>
+        </div>
+      </div>
+
+      <div class="container-fluid" ng-if="dashboardVm.user.feed.total_products">
+        <div class="container">
+          <div class="clearfix mb10">    
+            <h3 class=""><span translate="main.dashboard.popular_products"></span> <small translate="main.dashboard.stats_last_30_days"></small></h3>
+          </div>
+          <div class="clearfix">    
+            <div class="b-rounded b-bordered shadow-emboss col-lg-12 intro align-left mb20 bg-light" ng-if="dashboardVm.popularProducts.length">
+              <div class="clearfix p10 pl0 pr0">
+                <table class="table table-striped mb0" ng-if="dashboardVm.popularProducts.length">
+                  <thead>
+                    <tr>
+                      <th width="20"></th>
+                      <th class="middle" style="width:50%" translate="main.products.table_name"></th>
+                      <th align="right" translate="main.products.table_views"></th>            
+                      <th align="right" translate="main.products.table_returning_visitors"></th>            
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="product in dashboardVm.filteredProducts = dashboardVm.popularProducts track by product._id">
+                      <td><a href="{{product.link}}" target="_blank"><i class="fa fa-fw fa-external-link color-gray"></i></a>
+                      <td width="100%">{{product.title}}</td>
+                      <td>{{product.views}}</td>
+                      <td>{{product.customers}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid" ng-if="!dashboardVm.user.feed.total_products">
+        <div class="container">
+          <missing-products></missing-products>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="container">
+          <div class="clearfix mb10">    
+            <h3 class="">Active Popups</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mb20">
+        <div class="container">
+          <div class="clearfix">    
+            <div class="col-lg-4 p0 shadow-subtle">
+              <table width="100%" class="m0 bg-white">
+                <tr>
+                  <td class="m0"><i class="fa fa-fw2 fa-3x fa-lightbulb-o color-yellow-light p20"></i></td>
+                  <td width="100%" class="m0">
+                    <p class="color-slate m0"><span translate2="main.dashboard.stats_visitors">Aktywuj Product Reminder i ułatw swoim klientom dostęp do produktów.</span><br/><span class="small"><a href>Uruchom</a> &middot; <a href>Więcej</a></span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-lg-4 p0 shadow-subtle">
+              <table width="100%" class="m0 bg-white">
+                <tr>
+                  <td class="m0"><i class="fa fa-fw2 fa-3x fa-lightbulb-o color-yellow-light p20"></i></td>
+                  <td width="100%" class="m0">
+                    <p class="color-slate m0"><span translate2="main.dashboard.stats_visitors">Aktywuj Product Reminder i ułatw swoim klientom dostęp do produktów.</span><br/><span class="small"><a href>Uruchom</a> &middot; <a href>Więcej</a></span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-lg-4 p0 shadow-subtle">
+              <table width="100%" class="m0 bg-white">
+                <tr>
+                  <td class="m0"><i class="fa fa-fw2 fa-3x fa-lightbulb-o color-yellow-light p20"></i></td>
+                  <td width="100%" class="m0">
+                    <p class="color-slate m0"><span translate2="main.dashboard.stats_visitors">Aktywuj Product Reminder i ułatw swoim klientom dostęp do produktów.</span><br/><span class="small"><a href>Uruchom</a> &middot; <a href>Więcej</a></span></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

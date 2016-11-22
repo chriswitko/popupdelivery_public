@@ -1,0 +1,28 @@
+{
+  "main": {
+    "app": {
+      "design": {
+        "title": "Wpisz przykładowy tytuł",
+        "summary": "Umieść tutaj treść dla tego popupa",
+        "footer": "Akceptuję regulamin i politykę prywatności sklepu",
+        "button_cancel": "Zamknij",
+        "button_submit": "Zapisz"
+      },
+      "fields": {
+        "required": "Wymagane",
+        "male": "Mężczyzna",
+        "female": "Kobieta",
+        "email_placeholder": "Wpisz swój adres email",
+        "name_placeholder": "Wpisz swoje imię i nazwisko",
+        "reminder_title": "Twoje ostatnio przeglądane produkty i rekomendacje",
+        "reminder_clear_all": "Usuń historię",
+        "reminder_missing": "Tutaj znajdziesz ostatnio przeglądane produkty. Rozpocznij przeglądanie produktów naszym sklepie teraz.",
+        "reminder_badge": "Ostatnio przeglądane",
+        "reminder_prev": "poprzednie",
+        "reminder_next": "następne",
+        "reminder_tooltip_general": "Twoje ostatnio przeglądane produkty",
+        "reminder_demo_only": "To jest podgląd testowy."
+      }
+    }
+  }
+}

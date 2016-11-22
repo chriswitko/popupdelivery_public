@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <noscript>
+    &lt;div class="alert alert-warning" role="alert"&gt;
+      &lt;button type="button" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;
+      &lt;strong&gt;Warning !&lt;/strong&gt; It looks like your browser either doesn't support JavaScript or it has been disabled, please enable JavaScript and refresh the page.
+    &lt;/div&gt;
+  </noscript>
+  <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!-- uiView: -->
+  <div class="container-fluid bg-silver p10 shadow-close" style="display:none" id="cookie_alert">
+    <div class="container align-center">
+      <span ><a href="" ui-sref="privacy" class="color-slate">{{translate.privacy_cookies}}</span> 
+        <a href="javascript:void(0)" onclick="closeCookies()"><i class="fa fa-times color-slate"></i></a>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container pt20">
+      <div class="row">
+        <div class="col-lg-12 align-right">
+          <ul class="list-unstyled list-inline">
+            <li><a class="language" href="/en" data-language="en"><img src="../assets/flags/us.png"> English (US)</a></li>
+            <li><a class="language" href="/uk" data-language="uk"><img src="../assets/flags/gb.png"> English (UK)</a></li>
+            <li><a class="language" href="/pl" data-language="pl"><img src="../assets/flags/pl.png"> Polski</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container pt20">
+      <div class="row">
+        <div style="margin-top:-10px;" class="col-lg-6">
+          <ul class="list-unstyled list-inline">
+            <li>
+              <a href="/"><img src="../assets/logo_1_200.png" height="50"></a>
+            </li>
+            <li><a class="color-main" href="/">PopUpDelivery</a></li>
+            <li><a class="color-slate" href="#how" data-scroll="" >{{translate.navs.how}}</a></li>
+            <li><a class="color-slate" href="#pricing" data-scroll="" >{{translate.navs.pricing}}</a></li>
+            <li><a class="color-slate" href="{{translate.language_help}}" target="_blank">{{translate.footer_help}}</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-6 align-right">
+          <ul class="list-unstyled list-inline">
+            <li><a href="/#/login" >{{translate.navs.login}}</a></li>
+            <li><a class="fw900" href="/#/register" >{{translate.navs.get_started}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="fw900 fs40" >{{translate.tagline}}</h1>
+          <h4 class="fw300 lh1" >{{translate.subtagline}}</h4>
+          <div class="clearfix mt20">
+            <div class="clearfix group-buttons mb20">
+              <a href="#/register" ui-sref="register" >{{translate.button_get_started}}</a>
+            </div>
+            <div class="clearfix"><small class="fw300 color-gray">{{translate.button_tagline}}</small></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="../assets/img_turn.png" class="img-responsive">
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt20">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-unstyled list-inline">
+            <li><h2 class="fw300" >{{translate.shortcut}}</h2></li>
+            <li><h2><a href="#app_reminder" data-scroll="" class="color-blue-light fw400" >{{translate.app_product_reminder}}</a></h2></li>
+            <li><h2 class="color-pink-light">·</h2></li>
+            <li><h2><a href="#app_coupons" data-scroll="" class="color-blue-light fw400" >{{translate.app_coupons}}</a></h2></li>
+            <li><h2 class="color-pink-light">·</h2></li>
+            <li><h2><a href="#app_listbuilder" data-scroll="" class="color-blue-light fw400" >{{translate.app_list_builder}}</a></h2></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-light bg-light-bottom-border p50 shadow-close" id="app_reminder">
+    <div class="container mb30">
+      <h1 class="lato fw900 fs6" >{{translate.app_product_reminder}}</h1>
+      <h3 class="fw300 lh1" >{{translate.app_product_reminder_intro}}</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="list-unstyled list-about mb30">
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_product_reminder_about_1}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_product_reminder_about_2}}</span></h4></li>
+          </ul>
+          <ul class="list-unstyled list-inline mt20">
+            <li><a class="btn btn-lg blue-button mb20" href="#app_reminder" data-scroll="">{{translate.button_see_demo}}</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-responsive" src="../assets/img_reminder.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-white p50" id="app_coupons">
+    <div class="container mb30">
+      <h1 class="lato fw900 fs6" >{{translate.app_coupons}}</h1>
+      <h3 class="fw300 lh1" >{{translate.app_coupons_intro}}</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="img-responsive" src="../assets/img_coupons.png">
+        </div>
+        <div class="col-lg-6">
+          <ul class="list-unstyled list-about mb30">
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_coupons_about_1}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_coupons_about_2}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_coupons_about_3}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_coupons_about_4}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_coupons_about_5}}</span></h4></li>
+          </ul>
+          <ul class="list-unstyled list-inline mt20">
+            <li><a class="btn btn-lg blue-button mb20" href="#app_coupons" data-scroll="">{{translate.button_see_demo}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-light p50 shadow-close" id="app_listbuilder">
+    <div class="container mb30">
+      <h1 class="lato fw900 fs6" >{{translate.app_list_builder}}</h1>
+      <h3 class="fw300 lh1" >{{translate.app_list_builder_tagline}}</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="list-unstyled list-about mb30">
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_list_builder_about_1}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_list_builder_about_2}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_list_builder_about_3}}</span></h4></li>
+            <li class="lh1"><h4><i class="fa fa-dot-circle-o fa-fw"></i> <span >{{translate.app_list_builder_about_4}}</span></h4></li>
+          </ul>
+          <ul class="list-unstyled list-inline mt20">
+            <li><a class="btn btn-lg blue-button mb20" href="#app_listbuilder" data-scroll="">{{translate.button_see_demo}}</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-responsive" src="../assets/img_listbuilder.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid p50" id="how">
+    <div class="container mb30">
+      <table width="100%">
+        <tbody><tr>
+          <td width="50%">
+            <img align="left" class="img-responsive" src="../assets/img_how.png">
+          </td>
+          <td width="50%">
+            <h1 class="lato fw900 fs6" >{{translate.navs.how}}</h1>
+            <h3 class="fw300 lh1" >{{translate.section_how_intro}}</h3>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-code"></i>
+          <h4 class="lh1">1. <span >{{translate.section_how_1}}</span></h4>
+        </div>
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-cloud-upload"></i>
+          <h4 class="lh1">2. <span >{{translate.section_how_2}}</span></h4>
+        </div>
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-envelope-o"></i>
+          <h4 class="lh1">3. <span >{{translate.section_how_3}}</span></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-comments-o"></i>
+          <h4 class="lh1">4. <span >{{translate.section_how_4}}</span></h4>
+        </div>
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-history"></i>
+          <h4 class="lh1">5. <span >{{translate.section_how_5}}.</span></h4>
+        </div>
+        <div class="col-lg-4">
+          <i class="fa fa-2x fa-pie-chart"></i>
+          <h4 class="lh1">6. <span >{{translate.section_how_6}}</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-light p50 shadow-close" id="pricing">
+    <div class="container mb30 align-center">
+      <h1 class="lato fw900 fs6"><span >{{translate.section_integration}}</span></h1>
+      <h3 class="fw300 lh1" >{{translate.section_integration_more}}</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 align-center">
+          <ul class="list-unstyled list-inline mb20">
+            <li class="align-center"><p>MailChimp</p><img src="../assets/integrations/mailchimp.png" width="100"></li>
+            <li class="align-center"><p>CampaignMonitor</p><img src="../assets/integrations/campaignmonitor.png" width="100"></li>
+            <li class="align-center"><p>FreshMail</p><img src="../assets/integrations/freshmail.png" width="100"></li>
+            <li class="align-center"><p>GetResponse</p><img src="../assets/integrations/getresponse.png" width="100"></li>
+          </ul>
+          <p><i class="fa fa-arrow-circle-right"></i> Aweber, Constant Contact, ActiveCampaign, MyEmma, Mad Mimi, Infusionsoft, Feedblitz, HubSpot, MyNewsletterBuilder, Inbox First, Sailthru, Klaviyo, Vero, Pardot, Zapier, Ontraport, ExactTarget, Vertical Response, Drip, MailerLite, WhatCounts, ConvertKit, MailJet, Maropost <span translate="e">{{translate.section_integration_and_mor}}</span>
+        </p></div>        
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid p50 shadow-close" id="pricing">
+    <div class="container mb30 align-center">
+      <h1 class="lato fw900 fs6"><span >{{translate.section_pricing}}</span></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h1 class="color-green" >{{translate.pricing_free}}</h1>
+          <div class="badge bg-green mb20" >{{translate.pricing_free_tag}}</div>
+          <p ><strong>{{translate.section_pricing_free}}</strong></p>
+        </div>
+        <div class="col-lg-4">
+          <h1>{{translate.price_per_month}} / <span >{{translate.section_pricing_month}}</span></h1>
+          <div class="badge bg-green mb20" >{{translate.pricing_monthly_tag}}</div>
+          <p >{{translate.section_pricing_monthly}}</p>
+        </div>
+        <div class="col-lg-4">
+          <h1>{{translate.price_per_year}} / <span >{{translate.section_pricing_year}}</span></h1>
+          <div class="badge bg-green mb20" >{{translate.pricing_yearly_tag}}</div>
+          <p >{{translate.section_pricing_yearly}}</p>
+        </div>
+        <div class="col-lg-12">
+          <p class="color-gray"><small >{{translate.section_pricing_vat}}</small></p>
+        </div>        
+      </div>
+      <div class="row mt40">
+        <div class="col-lg-12 align-center">
+          <p><a href="#/register" ui-sref="register" >{{translate.button_get_started}}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-light p50 shadow-close" id="pricing">
+    <div class="container mb30 align-center">
+      <h1 class="lato fw900 fs6"><span >{{translate.section_contact}}</span></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 align-center">
+          <p><a class="btn btn-lg blue-button mb20" href="" onclick="Intercom('showNewMessage');">{{translate.section_contact_button}}</a></p>
+          <p>{{translate.section_contact_more}}</p>
+          <h2><a href="mailto:{{contact_email}}">{{translate.contact_email}}</a></h2>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  {% include "partials/footer.html" %}
+{% endblock %}

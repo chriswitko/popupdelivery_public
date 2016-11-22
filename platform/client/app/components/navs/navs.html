@@ -1,0 +1,56 @@
+<div class="container-fluid" ng-if="!navsVm.loggedIn">
+  <div class="container pt20">
+    <div class="row">
+      <div style="margin-top:-10px;" class="col-lg-6">
+        <ul class="list-unstyled list-inline">
+          <li>
+            <a href="/"><img src="./assets/logo_1_200.png" height="50"/></a>
+          </li>
+          <li><a class="color-main" href="/">PopUpDelivery</a></li>
+          <li><a class="color-slate" href="#how" data-scroll translate="main.navs.how"></a></li>
+          <li><a class="color-slate" href="#pricing" data-scroll translate="main.navs.pricing"></a></li>
+          <li><a class="color-slate" href ng-click="navsVm.goToSupport()" translate="main.footer_help"></a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 align-right">
+        <ul class="list-unstyled list-inline">
+          <li><a href="/#/login" translate="main.navs.login"></a></li>
+          <li><a class="fw900" href="/#/register" translate="main.navs.get_started"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" ng-if="navsVm.loggedIn">
+  <div class="container pt20">
+    <div class="row">
+      <div style="margin-top:-10px;" class="col-lg-6">
+        <ul class="list-unstyled list-inline">
+          <li>
+            <a href="/#/platform"><img src="./assets/logo_1_200.png" height="50"/></a>
+          </li>
+          <li><a class="color-main" href="/#/platform">PopUpDelivery</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 align-right">
+        <ul class="list-unstyled list-inline">
+          <li class="dropdown" ng-class="{active: navsVm.$state.includes('settings.*')}">
+            <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span translate="main.navs.more"></span> <span class="caret"></span></a>
+            <ul class="dropdown-menu li-transparent">
+              <li><a class="color-slate" href ui-sref="platform" translate="main.navs.dashboard"></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href ui-sref="settings.personal" translate="main.navs.settings"></a></li>
+              <li><a href ui-sref="settings.billing" translate="main.navs.billing"></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href ui-sref="install" translate="main.navs.install"></a></li>
+              <li><a href ng-click="navsVm.goToSupport()" translate="main.footer_help"></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href ng-click="navsVm.logout()" translate="main.navs.logout"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

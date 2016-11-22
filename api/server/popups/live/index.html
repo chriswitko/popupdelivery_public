@@ -1,0 +1,50 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PopUpDelivery - Live Preview</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- endbuild -->
+    <!-- build:css(client) styles/app.css -->
+    <link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/external.css">
+    <!-- endbuild -->
+		<style>
+			body {
+				padding: 0;
+        margin: 0;
+				background: url(https://s3.amazonaws.com/popupdelivery/assets/gray-bg.png) repeat top left;
+			}
+		</style>
+    <script>
+      function error(e) {
+        alert('error');
+      }
+    </script>
+	</head>
+	<body>
+    <nav class="navbar navbar-default mb0 b0 br0" style="z-index:9999999999999999;margin-bottom:0;">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="">Select demo:</a></li>
+            <li><a href="//api.popupdelivery.com/api/live?url={{url}}&p=signup">List Builder</a></li>
+            <li><a href="//api.popupdelivery.com/api/live?url={{url}}&p=coupon">Coupon</a></li>
+            <li><a href="//api.popupdelivery.com/api/live?url={{url}}&p=reminder">Product Reminder</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/#/register" role="button" aria-haspopup="true" aria-expanded="false"><strong class="color-green">Get started FREE</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {{#if url}}
+    <iframe src="//api.popupdelivery.com/api/source?url={{url}}" width="100%" style="display:table;height:100%;" frameborder="0" onerror="error('error iframe')"></iframe>
+    {{/if}}
+		<!-- PopUpDelivery Pixel -->
+		<script data-site-id="57cecbdef3f80b0e7233f661" type="text/javascript" src="//popupdelivery.com/assets/js/demo.js"></script>
+		<!-- End PopUpDelivery Pixel -->
+	</body>
+</html>

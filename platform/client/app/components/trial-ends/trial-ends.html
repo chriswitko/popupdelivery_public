@@ -1,0 +1,10 @@
+<div class="clearfix mb20" ng-if="!trialEndsVm.user.paid && trialEndsVm.user.days_left <= 14">
+  <div class="b-rounded shadow-emboss b-bordered bg-light col-lg-12 intro align-left">
+    <div class="clearfix">
+      <div class="col-lg-12 p30">
+        <p class="mb0" ng-if="!trialEndsVm.user.paid && trialEndsVm.user.days_left > -1"><i class="fa fa-fw fa-exclamation-triangle"></i>&nbsp;&nbsp;<strong translate="main.trial.billing"></strong>: <span translate="main.trial.message_1"></span> {{trialEndsVm.user.days_left > -1 ? ('main.trial.in' | translate) + (trialEndsVm.user.days_left + 1) + ' ' + ('main.trial.days' | translate) : ('main.trial.today' | translate)}}. <span class="pull-right fw600"><a href ui-sref="settings.billing" class="color-ui-negative" translate="main.trial.buy_now"></a></span></p>
+        <p class="mb0" ng-if="trialEndsVm.user.days_left < 0"><i class="fa fa-fw fa-exclamation-triangle"></i>&nbsp;&nbsp;<strong translate="main.trial.billing"></strong>: <span translate="main.trial.message_2"></span> <span class="pull-right fw600"><a href ui-sref="settings.billing" class="color-ui-negative" translate="main.trial.buy_now"></a></span></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="flexi" style="flex-direction:column;width:100%;display:flex;">
+  <div class="module-header bg-highlight">
+    <ul class="list-unstyled list-inline list-internal-nav mb0">
+      <li>
+        <a href class="badge" style="font-size:16px;line-height:22px;" ui-sref="customers.list">Customers</a>
+      </li>
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="customers.list"><i class="fa fa-fw fa-bar-chart"></i> Overview</a>
+      </li>
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="settings.billing"><i class="fa fa-fw fa-address-book-o"></i> Segments</a>
+      </li>
+      <li>
+        <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;" ui-sref="settings.billing"><i class="fa fa-fw fa-at"></i> Leads</a>
+      </li>
+    </ul>
+  </div>
+
+  <div style="width:100%;height:100%;flex:1;overflow-y:scroll;">
+    <!--<div ui-view></div>-->
+    <div class="container">
+      <div class="clearfix mb20">
+        <div class="col-lg-12 align-left p0">
+          <div class="clearfix group-buttons">
+            <a href ng-click="appCouponsVm.createApp({app_type: 'coupon', 'design': {template: 'popup.default', font: 'lato', background: 'light', theme: 'black', language: 'pl'}})" class="btn btn-default blue-button blue-button--active" translate="main.appcoupons.btn_create"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+
+        <div class="b-rounded b-bordered shadow-emboss bg-light col-lg-12 intro align-left mb20">
+          <div class="clearfix p10 pl0 pr0">
+            <table class="table table-striped mb0">
+              <thead>
+                <tr>
+                  <th width="100%" translate="main.appcoupons.table_name"></th>
+                  <th align="right" nowrap><span translate="main.appcoupons.table_views"></span> <span translate="main.dashboard.stats_last_30_days"></span></th>
+                  <!--<th translate="main.appcoupons.table_status"></th>-->
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="app in appCouponsVm.apps.coupon track by app._id">
+                  <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a> <span class="badge" ng-class="{'bg-green color-white': app.activated, 'bg-steal color-white': !app.activated}">{{app.published ? (app.activated ? ('main.appcoupons.table_badge_active' | translate) : ('main.appcoupons.table_badge_deactivated' | translate)) : (app.activated ? ('main.appcoupons.table_badge_active' | translate) : ('main.appcoupons.table_badge_new' | translate))}}</span></td>
+                  <td nowrap align="right">{{app.views || 0}}</td>
+                  <!--<td nowrap></td>-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>  
+
+    </div>
+    
+  </div>
+</div>
+
+<!--<navs></navs>-->
+
+<!--<div class="container-fluid bg-highlight mb20 pt20">
+  <div class="container">
+    <div class="clearfix">
+      <div class="col-lg-12 intro align-left p0 mb30">
+        <h1 class="fw900 fs6 m0"><span translate="main.appcoupons.name"></span><span class="color-pink-light">.</span></h1>
+      </div>
+      <div class="col-lg-12 intro align-left p0">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href aria-controls="preview" role="tab" data-toggle="tab" translate="main.appcoupons.taball"></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>-->
+
+<!--<div class="container-fluid">
+  <div class="container">
+    <div class="clearfix mb20">
+      <div class="col-lg-12 align-left p0">
+        <div class="clearfix group-buttons">
+          <a href ng-click="appCouponsVm.createApp({app_type: 'coupon', 'design': {template: 'popup.default', font: 'lato', background: 'light', theme: 'black', language: 'pl'}})" class="btn btn-default blue-button blue-button--active" translate="main.appcoupons.btn_create"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row2">
+
+      <div class="b-rounded b-bordered shadow-emboss bg-light col-lg-12 intro align-left mb20">
+        <div class="clearfix p10 pl0 pr0">
+          <table class="table table-striped mb0">
+            <thead>
+              <tr>
+                <th width="100%" translate="main.appcoupons.table_name"></th>
+                <th align="right" nowrap><span translate="main.appcoupons.table_views"></span> <span translate="main.dashboard.stats_last_30_days"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="app in appCouponsVm.apps.coupon track by app._id">
+                <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a> <span class="badge" ng-class="{'bg-green color-white': app.activated, 'bg-steal color-white': !app.activated}">{{app.published ? (app.activated ? ('main.appcoupons.table_badge_active' | translate) : ('main.appcoupons.table_badge_deactivated' | translate)) : (app.activated ? ('main.appcoupons.table_badge_active' | translate) : ('main.appcoupons.table_badge_new' | translate))}}</span></td>
+                <td nowrap align="right">{{app.views || 0}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>  
+
+  </div>
+</div>-->

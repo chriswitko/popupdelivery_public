@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'FaktProSoft';
+  src: url('/assets/fonts/FaktSoftPro-Blond.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/FaktSoftPro-Blond.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/FaktSoftPro-Blond.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/FaktSoftPro-Blond.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'FaktProSoft';
+  src: url('/assets/fonts/FaktSoftPro-Medium.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/FaktSoftPro-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/FaktSoftPro-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/FaktSoftPro-Medium.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'FaktProSoft';
+  src: url('/assets/fonts/FaktSoftPro-Normal.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/FaktSoftPro-Normal.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/FaktSoftPro-Normal.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/FaktSoftPro-Normal.ttf')  format('truetype'); /* Safari, Android, iOS */
+}

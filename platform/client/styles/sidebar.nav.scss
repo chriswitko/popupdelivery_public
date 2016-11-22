@@ -1,0 +1,107 @@
+@import 'colors'; 
+
+.sidebav-nav-button {
+  width: 50px; 
+  height: 50px;
+  margin-bottom: 5px;
+  
+  &:first-child {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  &:nth-child(n+1) {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    &.btns {
+      color: #273444;
+      &:active {
+        box-shadow: none
+      }
+      &:hover {
+        box-shadow: none
+      }
+    }
+  }
+
+  img {
+    &.active_logo {
+      display: none;
+    }
+    &.deactive_logo {
+      display: block;
+    }
+  }
+
+  &.active {
+    img {
+      &.active_logo {
+        display: block;
+      }
+      &.deactive_logo {
+        display: none;
+      }
+    }
+  }
+} 
+
+.list-internal-nav a {
+  background: transparent;
+}
+
+.list-internal-nav a.active {
+  background: $color-smoke-dark;
+  color: $color-slate;
+}
+
+.list-internal-nav a.active:hover {
+  color: $color-silver;
+}
+
+.list-internal-nav a:hover {
+  color: $color-silver;
+}
+
+.list-internal-nav a {
+  color: $color-slate;
+}
+
+/* PURPLE NAV */
+.bg-purple-light > .list-internal-nav a.active {
+  background: $color-white;
+  color: $color-slate;
+}
+
+.bg-purple-light > .list-internal-nav a.active:hover {
+  color: $color-silver-light;
+}
+
+.bg-purple-light > .list-internal-nav a:hover {
+  color: $color-slate;
+}
+
+.bg-purple-light > .list-internal-nav a {
+  color: $color-white;
+}
+/* END: PURPLE NAV */
+
+/* GREEN NAV */
+.bg-green-light > .list-internal-nav a.active {
+  background: $color-white;
+  color: $color-slate;
+}
+
+.bg-green-light > .list-internal-nav a.active:hover {
+  color: $color-silver-light;
+}
+
+.bg-green-light > .list-internal-nav a:hover {
+  color: $color-slate;
+}
+
+.bg-green-light > .list-internal-nav a {
+  color: $color-white;
+}
+/* END: GREEN NAV */

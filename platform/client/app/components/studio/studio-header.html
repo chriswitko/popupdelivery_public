@@ -1,0 +1,16 @@
+<div class="module-header bg-white">
+  <table width="100%">
+    <tr>
+      <td nowrap>
+        <p class="form-control-static mb0"><i class="fa fa-fw fa-circle" ng-class="{'color-green': $ctrl.app.activated, 'color-ui-negative': !$ctrl.app.activated}" uib-tooltip="{{$ctrl.app.activated ? 'Active' : 'Not Active'}}" tooltip-placement="bottom"></i>
+        <span class="cursored" ng-if="!$ctrl.settings.edit" ng-click="$ctrl.settings.edit = true">{{$ctrl.app.manifest.name || 'No name'}} <span class="color-gray small">(click to edit)</span></span><span ng-if="$ctrl.settings.edit"><input type="text" class="b02" style="width:80%" name="" ng-model="$ctrl.app.manifest.name" ng-enter="$ctrl.onSaveApp()" ng-auto-focus/>&nbsp;<a class="small" href ng-click="$ctrl.onSaveApp()">Save</a></span></p>
+      </td>
+      <td class="align-right" nowrap>
+      <div class="clearfix group-buttons align-right">
+        <button class="btn btn-sm btn-default" ng-if="$ctrl.app.published && $ctrl.app.activated" ng-click="$ctrl.onDeactivateApp()" translate="main.studio.btn_deactivate"></button>
+        <button class="btn btn-sm btn-primary" ng-click="$ctrl.onDeployApp()">{{!$ctrl.app.published ? ('main.studio.btn_activate' | translate) : ('main.studio.btn_republish' | translate)}}</button>
+      </div>
+      </td>
+    </tr>
+  </table>
+</div>

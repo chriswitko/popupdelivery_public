@@ -1,0 +1,225 @@
+<div class="col-lg-42" style2="display:flex;flex:1;width:100%;min-width:400px;flex-direction:column;">    
+  <!--<div class="form-group mb0">
+    <div class="clearfix p20">
+      <ul class="nav nav-pills">
+        <li class="active"><a class="" ng-class="{'color-main strong': $ctrl.activeSection === 'design', 'color-gray': $ctrl.activeSection !== 'design'}" href ng-click="$ctrl.activeteSection('design')"><i class="fa fa-file-o"></i> Design</a></li>
+        <li><a class="" ng-class="{'color-main strong': $ctrl.activeSection === 'settings', 'color-gray': $ctrl.activeSection !== 'settings'}" href ng-click="$ctrl.activeteSection('settings')"><i class="fa fa-code"></i> Settings</a></li>
+      </ul>
+    </div>
+  </div>-->
+
+  <div ng-if="$ctrl.activeSection === 'design'" class="p20">
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('format') > -1">
+      <label translate="main.app.design.format">Format</label>
+      <select class="form-control" ng-model="$ctrl.app.design.format">
+        <option value="form" translate="main.app.design.format_form"></option>
+        <option value="banner" translate="main.app.design.format_banner"></option>
+      </select>
+    </div>
+    <div class="clearfix" ng-if="$ctrl.app.design.format === 'form'">
+      <table width="100%">
+        <tr>
+          <td valign="top" width="50%" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('theme') > -1">
+            <div class="form-group">
+              <label translate="main.app.design.theme"></label>
+              <ul class="list-unstyled list-inline list-themed">
+                <li ng-class="{'active': $ctrl.app.design.theme === 'blue'}">
+                  <a href ng-click="$ctrl.selectTheme('blue')" class="circle-theme bg-main" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'blue'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'green'}">
+                  <a href ng-click="$ctrl.selectTheme('green')" class="circle-theme bg-green" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'green'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'pink'}">
+                  <a href ng-click="$ctrl.selectTheme('pink')" class="circle-theme bg-pink" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'pink'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'purple'}">
+                  <a href ng-click="$ctrl.selectTheme('purple')" class="circle-theme bg-purple" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'purple'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'orange'}">
+                  <a href ng-click="$ctrl.selectTheme('orange')" class="circle-theme bg-orange" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'orange'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'yellow'}">
+                  <a href ng-click="$ctrl.selectTheme('yellow')" class="circle-theme bg-yellow" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'yellow'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'smoke'}">
+                  <a href ng-click="$ctrl.selectTheme('smoke')" class="circle-theme bg-smoke" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'smoke'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-black"></i></div>
+                </li>
+                <li ng-class="{'active': $ctrl.app.design.theme === 'black'}">
+                  <a href ng-click="$ctrl.selectTheme('black')" class="circle-theme bg-black" ng-class="{'active shadow-subtle': $ctrl.app.design.theme === 'black'}"></a>
+                  <div class="ticked"><i class="fa fa-check color-white"></i></div>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('font') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.font"></label>
+      <select class="form-control" ng-model="$ctrl.app.design.font">
+        <option value="lato">Lato</option>
+        <option value="playfair">Playfair</option>
+        <option value="merriweather">Merriweather</option>
+        <option value="crete">Crete</option>
+        <option value="ptsansnarrow">PT Sans Narrow</option>
+      </select>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('image') > -1">
+      <label translate="main.app.design.image"></label>
+      <input ng-if="!$ctrl.app.design.image_url && !$ctrl.uploadProgress" type="file" ngf-select ngf-change="$ctrl.onFileSelect($files)">
+      <p ng-if="$ctrl.uploadProgress"><i class="fa fa-fw fa-cloud-upload color-ui-warning"></i> <span translate="main.products.feed_uploading"></span>: {{$ctrl.uploadProgress}}. <span translate="main.products.feed_pleasewait"></span>.</p>
+      <p ng-if="$ctrl.app.design.image_url"><a href ng-click="$ctrl.removeImage()" translate="main.studio.remove_image"></a></p>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('image') > -1 && $ctrl.app.design.image_url">
+      <label translate="main.app.design.image_link"></label>
+      <input type="text" class="form-control" ng-model="$ctrl.app.design.image_link"/>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('title') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.title_label"></label>
+      <input type="text" class="form-control" ng-model="$ctrl.app.design.title"/>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('summary') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.summary_label"></label>
+      <textarea class="form-control" ng-model="$ctrl.app.design.summary"></textarea>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('fields') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.fields_label"></label>
+      <div class="checkbox" translate-language="{{$ctrl.app.design.language}}">
+        <label>
+          <input type="checkbox" ng-model="$ctrl.app.design.fields.name"> <span translate="main.app.fields.name"></span>
+        </label>
+      </div>          
+      <div class="checkbox" translate-language="{{$ctrl.app.design.language}}">
+        <label disabled>
+          <input type="checkbox" ng-model="$ctrl.app.design.fields.email" checked> <span translate="main.app.fields.email"></span>
+        </label>
+      </div>          
+      <div class="checkbox" translate-language="{{$ctrl.app.design.language}}">
+        <label>
+          <input type="checkbox" ng-model="$ctrl.app.design.fields.gender"> <span translate="main.app.fields.gender"></span>
+        </label>
+      </div>          
+    </div>
+    <div class="clearfix" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('buttons') > -1 && $ctrl.app.design.format === 'form'">
+      <table width="100%">
+        <tr>
+          <td valign="top" width="48%">
+            <div class="form-group">
+              <label translate="main.app.design.button_submit_label"></label>
+              <input type="text" class="form-control" ng-model="$ctrl.app.design.button_submit"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('footer') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.footer_label"></label>
+      <input type="text" class="form-control" ng-model="$ctrl.app.design.footer"/>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('width') > -1">
+      <label translate="main.app.design.width"></label>
+      <div class="input-group" style="width:50%">
+        <input type="text" class="form-control" ng-model="$ctrl.app.design.width"/>
+        <div class="input-group-addon">px</div>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('size') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.size"></label>
+      <select ng-model="$ctrl.app.design.size" class="form-control">
+        <option value="regular" translate="main.app.design.size_default"></option>
+        <option value="small" translate="main.app.design.size_small"></option>
+      </select>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('position') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.position"></label>
+      <select ng-model="$ctrl.app.design.position" class="form-control">
+        <option value="right" translate="main.app.design.position_right"></option>
+        <option value="left" translate="main.app.design.position_left"></option>
+      </select>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('margin') > -1 && $ctrl.app.design.format === 'form'">
+      <label translate="main.app.design.margin"></label>
+      <div class="input-group" style="width:50%">
+        <input type="text" class="form-control" ng-model="$ctrl.app.design.margin"/>
+        <div class="input-group-addon">px</div>
+      </div>
+    </div>
+    <div class="form-group" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.design.fields.indexOf('animation') > -1">
+      <label translate="main.app.design.animation"></label>
+      <select ng-model="$ctrl.app.design.animation" class="form-control">
+        <option value="" translate="main.app.design.animation_off"></option>
+        <option value="bounce">bounce</option>
+        <option value="flash">flash</option>
+        <option value="pulse">pulse</option>
+        <option value="rubberBand">rubberBand</option>
+        <option value="shake">shake</option>
+        <option value="swing">swing</option>
+        <option value="tada">tada</option>
+        <option value="wobble">wobble</option>
+        <option value="jello">jello</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div ng-if="$ctrl.activeSection === 'settings'" class="p20">
+    <div class="clearfix p10tb" ng-click="$ctrl.markAsOpen('when')">
+      <h4 class="m0">
+        <strong><span translate="main.studio.when"></span></strong> <span class="badge badge-success" translate="main.studio.optional_label"></span>
+      </h4>
+    </div>
+    <ul class="list-group mb0">
+      <li class="list-group-item" ng-class="{active: $ctrl.app.manifest.when === 'immediately'}" ng-click="$ctrl.app.manifest.when = 'immediately'" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.when.fields.indexOf('immediately') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="when" id="when_immediately" value="immediately" ng-model="$ctrl.app.manifest.when" ng-click="$ctrl.saveApp({doNotRefresh: true})">
+            <strong translate="main.studio.when_immediately"></strong>
+            <p class="help-line color-gray" translate="main.studio.when_immediately_more"></p>
+          </label>
+        </div>              
+      </li>
+      <li class="list-group-item" ng-class="{active: $ctrl.app.manifest.when === 'exit'}" ng-click="$ctrl.app.manifest.when = 'exit'" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.when.fields.indexOf('exit') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="when" id="when_exit" value="exit" ng-model="$ctrl.app.manifest.when" ng-click="$ctrl.saveApp({doNotRefresh: true})">
+            <strong translate="main.studio.when_exit"></strong> <span class="badge bg-ui-negative">NEW</span>
+            <p class="help-line color-gray" translate="main.studio.when_exit_more"></p>
+          </label>
+        </div>              
+      </li>
+      <li class="list-group-item" ng-class="{active: $ctrl.app.manifest.when === 'timeout'}" ng-click="$ctrl.app.manifest.when = 'timeout'" ng-if="$ctrl.apps[$ctrl.app.app_type].sections.when.fields.indexOf('timeout') > -1">
+        <div class="radio">
+          <label style="width:100%">
+            <input type="radio" name="when" id="when_timeout" value="timeout" ng-model="$ctrl.app.manifest.when" ng-click="$ctrl.saveApp({doNotRefresh: true})">
+            <strong translate="main.studio.when_timeout"></strong>
+            <p class="help-line color-gray" translate="main.studio.when_timeout_more"></p>
+            <select ng-if="$ctrl.app.manifest.when === 'timeout'" class="form-control" style="width:100px" ng-model="$ctrl.app.manifest.target.when_timeout">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </label>
+        </div>              
+      </li>
+    </ul>
+  </div>       
+</div>

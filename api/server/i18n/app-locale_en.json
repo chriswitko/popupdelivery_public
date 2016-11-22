@@ -1,0 +1,28 @@
+{
+  "main": {
+    "app": {
+        "design": {
+            "title": "Enter title here",
+            "summary": "Enter sample summary for this popup",
+            "footer": "I have read and agree with the Terms and Privacy Policy",
+            "button_cancel": "Cancel",
+            "button_submit": "Subscribe"
+        },
+        "fields": {
+            "required": "Required",
+            "male": "Male",
+            "female": "Female",
+            "email_placeholder": "Enter your email address",
+            "name_placeholder": "Enter your first and last name",
+            "reminder_title": "Your recently viewed items and featured recommendations",
+            "reminder_clear_all": "Remove history",
+            "reminder_missing": "Find all your recently viewed products below.",
+            "reminder_badge": "Recently viewed",
+            "reminder_prev": "prev",
+            "reminder_next": "next",
+            "reminder_tooltip_general": "Your recently viewed items",
+            "reminder_demo_only": "This is a demo only."
+        }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+<missing-products ng-if="!productsListVm.products.length"></missing-products>
+
+<products-table products="productsListVm.products" search="true" handle-search-query="productsListVm.getProducts({q: q})"></products-table>

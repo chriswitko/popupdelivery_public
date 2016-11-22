@@ -1,0 +1,30 @@
+{
+  "name": "mean-starter-kit",
+  "description": "Starter kit (seed) for MEAN stack applications - MongoDB, Express, AngularJS, NodeJS with Gulp",
+  "version": "0.2.0",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-touch": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-i18n": "~1.5.0",
+    "html5-boilerplate": "~5.3.0",
+    "bootstrap": "~3.3.5",
+    "bootstrap-additions": "~0.3.1",
+    "jquery": "~2.2.1",
+    "angular-translate": "~2.10.0",
+    "angular-dynamic-locale": "~0.1.28",
+    "angular-translate-storage-local": "~2.10.0",
+    "angular-translate-loader-static-files": "~2.10.0",
+    "angular-ui-router": "~0.2.15",
+    "font-awesome": "fontawesome#^4.7.0",
+    "angular-bootstrap": "^2.0.0",
+    "ng-file-upload-shim": "^12.0.4",
+    "ng-file-upload": "^12.0.4",
+    "angular-stripe-checkout": "^4.0.2",
+    "ng-country-select": "^0.1.4",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#^9.3.2",
+    "angular-ui-select": "^0.19.6"
+  }
+}

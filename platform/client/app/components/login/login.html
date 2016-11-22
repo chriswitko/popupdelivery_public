@@ -1,0 +1,26 @@
+<div class="container-fluid bg-light p0" style="flex:1;display:flex;flex-direction:column;align-items: center;justify-content: center;min-height:100%;overflow:hidden;">
+  <div class="container container-fixed" style="margin:auto;background: transparent url(/assets/img_coupons_md.png) no-repeat center -20px;padding-top:200px;padding-bottom:200px;">      
+    <div class="col-lg-5 col-md-7 col-sm-7 col-xs-12" style="display:flex;margin:auto;float:none;flex-direction:column;position:relative;">
+      <div class="b-rounded shadow-subtle b-bordered bg-white intro" style="float:none;margin:auto;">
+        <div class="clearfix align-center mt30"><h3 class="fw900 m0">Log in to PopupDelivery</h3></div>
+        <form name="loginForm" novalidate class="mb0 p30" ng-submit="loginVm.login()">
+          <div class="alert alert-danger" ng-if="loginVm.errorMessage">
+            <span translate="main.signin.error"></span>: {{loginVm.errorMessage | translate}}
+          </div>
+          <div class="form-group">
+            <label class="pull-left" for="email" translate="main.signin.email"></label>
+            <input type="email" required ng-click="registerVm.errorMessage = ''" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="email" placeholder="{{ 'main.signin.email' | translate}}" ng-model="loginVm.user.email">
+          </div>
+          <div class="form-group mb30">
+            <label class="pull-left" for="password" translate="main.signin.password"></label>
+            <input type="password" required ng-click="registerVm.errorMessage = ''" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="password" placeholder="{{ 'main.signin.password' | translate}}" ng-model="loginVm.user.password">
+          </div>
+          <div class="clearfix group-buttons">
+            <button type="submit" class="btn btn-lg btn-primary blue-button blue-button--active" ng-disabled="loginForm.$invalid" ng-click="loginVm.login()" translate="main.signin.btn_login"></button>
+            <button type="submit" class="btn btn-lg btn-primary gray-button" ui-sref="home" translate="main.signin.btn_cancel"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

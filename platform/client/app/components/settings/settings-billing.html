@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row mb20">
+    <div class="col-lg-12" ng-if="!settingsBillingVm.user.paid">
+      <div style="display:inline-block;margin-right:10px;" translate="main.settings.select_preffered_currency"></div>
+      <div class="dropdown" style="display:inline-block"> 
+        <a href class="dropdown-toggle color-slate btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>{{settingsBillingVm.defaultCurrency}}</strong> <span class="caret"></span></a>
+        <ul class="dropdown-menu li-transparent">
+          <li ng-class="{active: settingsBillingVm.defaultCurrency === 'GBP'}"><a href ng-click="settingsBillingVm.changeCurrency('GBP')">GBP</a></li>
+          <li ng-class="{active: settingsBillingVm.defaultCurrency === 'EUR'}"><a href ng-click="settingsBillingVm.changeCurrency('EUR')">EUR</a></li>
+          <li ng-class="{active: settingsBillingVm.defaultCurrency === 'USD'}"><a href ng-click="settingsBillingVm.changeCurrency('USD')">USD</a></li>
+          <li ng-class="{active: settingsBillingVm.defaultCurrency === 'PLN'}"><a href ng-click="settingsBillingVm.changeCurrency('PLN')">PLN</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb20" ng-if="!settingsBillingVm.user.vat_verified && !settingsBillingVm.user.paid">
+    <div class="col-lg-12">
+      <div class="alert alert-info mb0">
+        <span translate="main.settings.verify_vat_note"></span> <a href ui-sref="settings.personal"><span translate="main.settings.btn_verify"></span>...</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb20" ng-if="settingsBillingVm.user.vat_rate">
+    <div class="col-lg-12">
+      <div class="alert alert-success mb0">
+        <span>{{ 'main.settings.add_vat_note' | translate:'{ vat_rate: ' + settingsBillingVm.user.vat_rate + ' }' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" ng-if="!settingsBillingVm.user.paid">
+      <h1 class="color-green" translate="main.pricing_free"></h1>
+      <div class="badge bg-slate mb20" ng-if="settingsBillingVm.user.days_left >= 0 && !settingsBillingVm.user.paid" translate="main.settings.your_current_plan"></div>
+      <div class="badge bg-orange mb20" ng-if="settingsBillingVm.user.days_left < 0 && !settingsBillingVm.user.paid" translate="main.settings.your_current_plan_expired"></div>
+      <p translate="main.section_pricing_free"></p>
+    </div>
+    <div class="col-lg-4">
+      <h1>{{settingsBillingVm.plans[settingsBillingVm.defaultCurrency].price_per_month_text}} / <span translate="main.section_pricing_month"></h1>
+      <div class="badge bg-green mb20" ng-if="!settingsBillingVm.user.paid" translate="main.pricing_monthly_tag"></div>
+      <div class="badge bg-green mb20" ng-if="settingsBillingVm.user.paid && settingsBillingVm.user.plan === 'basic_monthly'" translate="main.settings.your_current_plan"></div>
+      <p translate="main.section_pricing_monthly"></p>
+      <p class="mt30" ng-if="!settingsBillingVm.user.paid"><a class="btn btn-lg btn-primary green-button green-button--active mb20" href ng-click="settingsBillingVm.subscribeNow('basic', settingsBillingVm.plans[settingsBillingVm.defaultCurrency].monthly, 'monthly', settingsBillingVm.user.currency, settingsBillingVm.plans[settingsBillingVm.defaultCurrency].price_per_month)" ng-disabled="settingsBillingVm.inProgress">{{settingsBillingVm.inProgress ? ('main.settings.please_wait' | translate) : ('main.settings.buy_now' | translate)}}</a></p>
+      <p class="mt30" ng-if="settingsBillingVm.user.paid && settingsBillingVm.user.plan === 'basic_monthly'"><a class="btn btn-lg btn-default round-button mb20" href ng-click="settingsBillingVm.unsubscribe()" ng-disabled="settingsBillingVm.inProgress">{{settingsBillingVm.inProgress ? ('main.settings.please_wait' | translate) : ('main.settings.cancel' | translate)}}</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h1>{{settingsBillingVm.plans[settingsBillingVm.defaultCurrency].price_per_year_text}} / <span translate="main.section_pricing_year"></span></h1>
+      <div class="badge bg-green mb20" translate="main.pricing_yearly_tag"></div>
+      <p translate="main.section_pricing_yearly"></p>
+      <p class="mt30" ng-if="!settingsBillingVm.user.paid || (settingsBillingVm.user.paid && settingsBillingVm.user.plan === 'basic_monthly')"><a class="btn btn-lg btn-primary green-button green-button--active mb20" href  ng-click="settingsBillingVm.subscribeNow('basic', settingsBillingVm.plans[settingsBillingVm.defaultCurrency].yearly, 'yearly', settingsBillingVm.user.currency, settingsBillingVm.plans[settingsBillingVm.defaultCurrency].price_per_year)" ng-disabled="settingsBillingVm.inProgress">{{settingsBillingVm.inProgress ? ('main.settings.please_wait' | translate) : ('main.settings.buy_now' | translate)}}</a></p>
+      <p class="mt30" ng-if="settingsBillingVm.user.paid && settingsBillingVm.user.plan === 'basic_yearly'"><a class="btn btn-lg btn-default round-button mb20" href ng-click="settingsBillingVm.unsubscribe()" ng-disabled="settingsBillingVm.inProgress">{{settingsBillingVm.inProgress ? ('main.settings.please_wait' | translate) : ('main.settings.cancel' | translate)}}</a></p>
+    </div>
+    <div class="col-lg-12">
+      <p class="color-gray mb20"><small translate="main.section_pricing_vat"></small></p>
+      <p><img src="/assets/powered_by_stripe@3x_a.png" height="40" class="img-rounded"/>
+    </div>
+  </div>
+
+</div>

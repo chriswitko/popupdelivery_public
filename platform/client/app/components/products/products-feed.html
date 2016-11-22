@@ -1,0 +1,67 @@
+<!--<div class="alert alert-danger" ng-if="productsFeedVm.user.feed.status !== 'STATUS_FEED_FINISHED' && productsFeedVm.user.feed.total_products">
+  <span translate="main.products.error_1"></span>
+</div>-->
+
+<div class="alert alert-success" ng-if="productsFeedVm.user.feed.status === 'STATUS_FEED_FINISHED' && productsFeedVm.user.feed.total_products">
+  <span>{{ 'main.products.error_2' | translate:'{total_products : ' + productsFeedVm.user.feed.total_products + '}' }} </span>
+</div>
+
+<div class="alert alert-success" ng-if="!productsFeedVm.user.feed.status && !productsFeedVm.user.feed.total_products">
+  <span translate="main.products.error_3"></span>
+</div>
+
+<div class="b-rounded b-bordered shadow-emboss bg-light col-lg-12 intro align-left mb20">
+  <div class="clearfix p10 pl0 pr0">
+    <div class="clearfix" ng-class="{hide: productsFeedVm.currentView !== 'default'}">
+      <h4><strong translate="main.products.feed_title"></strong></h4>
+      <p ng-if="!productsFeedVm.user.feed.total_products" class="color-ui-positive"><strong translate="main.products.feed_desc"></strong></p>
+      <p translate="main.products.feed_instructions"></p>
+      <!--<p><a target="_top" href="https://developers.facebook.com/docs/marketing-api/dynamic-product-ads/product-catalog" translate="main.products.feed_link_more"></a></p>-->
+      <form>
+        <div class="form-group">
+          <label translate="main.products.feed_upload_type"></label>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="radio">
+              <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="scheduled" ng-model="productsFeedVm.user.feed.upload_type">
+                <strong translate="main.products.feed_type_scheduled"></strong>
+                <p translate="main.products.feed_type_scheduled_more"></p>
+              </label>
+            </div>
+            <div class="radio">
+              <label ng-click="productsFeedVm.setManualUpload()">
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="single_upload" ng-model="productsFeedVm.user.feed.upload_type">
+                <strong translate="main.products.feed_type_manual"></strong>
+                <p translate="main.products.feed_type_manual_more"></p>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix" ng-class="{hide: productsFeedVm.user.feed.upload_type !== 'scheduled'}">
+          <div class="form-group">
+            <label translate="main.products.feed_type_scheduled_url"></label>
+            <p translate="main.products.feed_type_scheduled_url_line_1"></p>
+            <p translate="main.products.feed_type_scheduled_url_line_2"></p>
+            <input type="text" class="form-control" ng-model="productsFeedVm.user.feed.url" placeholder="https://yourstoredomain.com/feed.xml"/>
+          </div>
+        </div>
+        <div class="clearfix" ng-class="{hide: productsFeedVm.user.feed.upload_type !== 'single_upload'}">
+          <div class="form-group">
+            <label translate="main.products.feed_type_manual_url"></label>
+            <p translate="main.products.feed_type_manual_url_line_1"></p>
+            <p ng-if="!productsFeedVm.user.feed.url && !productsFeedVm.uploadProgress"><input type="file" ngf-select ngf-change="productsFeedVm.onFileSelect($files)"></p>
+            <p ng-if="productsFeedVm.uploadProgress"><i class="fa fa-fw fa-cloud-upload color-ui-warning"></i> <span translate="main.products.feed_uploading"></span> {{productsFeedVm.uploadProgress}}. <span translate="main.prodicts.feed_pleasewait"></span.</p>
+            <p ng-if="productsFeedVm.user.feed.last_uploaded_at"><span translate="main.products.feed_lastupload"></span>: {{productsFeedVm.user.feed.last_uploaded_at | date: 'dd-MM-yyyy HH:mm'}}</p>
+            <p ng-if="productsFeedVm.user.feed.total_products"><span translate="main.products.feed_uploadedproducts"></span>: {{productsFeedVm.user.feed.total_products}}</p>
+            <p ng-if="productsFeedVm.user.feed.url"><a href ng-click="productsFeedVm.replaceFile()" translate="main.products.feed_replace"></a></p>
+          </div>
+        </div>
+        <div class="clearfix" ng-if="productsFeedVm.user.feed.upload_type === 'scheduled'">
+          <a href class="btn btn-default blue-button blue-button--active" ng-click="productsFeedVm.saveFeed()" ng-disabled="!productsFeedVm.user.feed.url.length" translate="main.products.btn_uploadnow"></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

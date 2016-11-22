@@ -1,0 +1,43 @@
+<div class="clearfix p15" ng-if="customersListVm.filteredCustomers.length">
+  <div class="col-lg-12 align-left p0">
+    <div class="clearfix group-buttons">
+      <a href class="btn btn-default round-button" ng-disabled="!customersListVm.selectedCustomers.length" ng-click="customersListVm.removeCustomers()" translate="main.customers.btn_delete"></a>
+      <a href class="btn btn-default round-button" ng-disabled="!customersListVm.customers.length" ng-click="customersListVm.exportCustomers()" translate="main.customers.btn_export_customers"></a>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix ">
+  <div class="b-rounded2 b-bordered2 shadow-emboss2 bg-light col-lg-12 intro align-left mb20">
+    <div class="clearfix p10 pl0 pr0">
+      <table class="table table-striped mb0">
+        <thead>
+          <tr>
+            <th width="20"></th>
+            <th translate="main.customers.table_email"></th>
+            <th translate="main.customers.table_name"></th>
+            <th translate="main.customers.table_gender"></th>
+            <th translate="main.customers.table_date_created"></th>
+            <th translate="main.customers.table_recent_visit"></th>
+            <th translate="main.customers.table_location"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="!customersListVm.filteredCustomers.length">
+            <td colspan="6" translate="main.customers.no_data"></td>
+          </tr>
+          <tr ng-if="customersListVm.filteredCustomers.length" ng-repeat="customer in customersListVm.filteredCustomers = customersListVm.customers track by customer._id">
+            <td><input type="checkbox" value="{{customer._id}}" name="customers[]" ng-checked="customersListVm.selectedCustomers.indexOf(customer._id) > -1" ng-click="customersListVm.onCustomerChange(customer._id)"/></td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.fullname || '&mdash;'}}</a></td>
+            <td>{{(customer.gender ? ('main.customers.table_gender_' + customer.gender | translate) : '') || '&mdash;'}}</a></td>
+            <td>{{customer.created_at | date: 'dd-MM-yyyy HH:mm'}}</td>
+            <td>{{customer.recent_visit_at | date: 'dd-MM-yyyy HH:mm'}}</td>
+            <td>{{customer.city || '-'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>  

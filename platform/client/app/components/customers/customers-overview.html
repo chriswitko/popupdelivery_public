@@ -1,0 +1,176 @@
+<div class="content" style="display:block;height:100%;flex:1;display:flex;">
+
+  <div class="container-fluid ">
+    <div class="container">
+      <div class="clearfix ">
+        <div class="clearfix">    
+          <div class="pull-left mt5">
+            <h3 class="" translate2="main.dashboard.overview">Overview</h3>
+          </div>
+          <div class="mt20 pull-right">
+            <div class="btn-group pull-right">
+              <label class="btn btn-default bg-light fw900" ng-model="checkModel.right" uib-btn-checkbox>Today</label>
+              <label class="btn btn-default" ng-model="checkModel.middle" uib-btn-checkbox>7 days</label>
+              <label class="btn btn-default" ng-model="checkModel.left" uib-btn-checkbox>30 days</label>
+            </div>
+            <div class="pull-right pr15">
+              <a href ng-click="$ctrl.createApp({app_type: 'coupon', 'design': {template: 'popup.default', font: 'lato', background: 'light', theme: 'black', language: 'pl'}})" class="btn btn-default blue-button blue-button--active" translate2="main.appcoupons.btn_create"><i class="fa fa-fw fa-plus"></i> Create New Segment</a>
+            </div>
+          </div>            
+        </div>
+        <hr class="mb0"/>
+      </div>
+    </div>
+  </div>
+
+        
+  <div class="container-fluid mb15">
+    <div class="container">
+      <div class="clearfix" style="border-bottom: 1px solid rgb(238, 238, 238)">
+        <div class="col-lg-4 bg-white">
+          <h1>{{dashboardStatsVm.stats.visitors || 0}}</h1>
+          <p class="color-slate"><span translate2="main.dashboard.stats_visitors">Total</span></p>
+        </div>
+        <div class="col-lg-4 bg-white">
+          <h1>{{dashboardStatsVm.stats.visitors || 0}}</h1>
+          <p class="color-slate"><span translate2="main.dashboard.stats_visitors_live">New</span></p>
+        </div>
+        <div class="col-lg-4 bg-white">
+          <h1>{{dashboardStatsVm.stats.visitors || 0}}</h1>
+          <p class="color-slate"><span translate2="main.dashboard.stats_visitors_live">Returning</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid mb20">
+    <div class="container">
+      <div class="clearfix mb10">    
+        <h3 class="">Popular Segments</h3>
+      </div>
+
+      <div class="b-rounded2 b-bordered2 shadow-emboss2 bg-light col-lg-12 intro align-left ">
+        <div class="clearfix p10 pl0 pr0">
+          <table class="table table-striped mb0">
+            <thead>
+              <tr>
+                <th width="100%" translate="main.appcoupons.table_name"></th>
+                <th align="right" nowrap><span translate2="main.appcoupons.table_views">Customers</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="app in $ctrl.apps.coupon track by app._id">
+                <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a></td>
+                <td nowrap align="right">{{app.views || 0}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid mb15">
+    <div class="container">
+      <img class="img-responsive" width="100%" src="/assets/s_graph.png"/>
+    </div>
+  </div>
+
+  <div class="container-fluid mb15">
+    <div class="container">
+      <div class="clearfix mb10">    
+        <h3 class="">Popular Locations</h3>
+      </div>
+      <div class="clearfix">    
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d19867.866092567343!2d-0.24688045!3d51.50434945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1478612280066" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mb20">
+    <div class="container">
+      <div class="clearfix mb10">    
+        <h3 class="">Popular Cities</h3>
+      </div>
+
+      <div class="b-rounded2 b-bordered2 shadow-emboss2 bg-light col-lg-12 intro align-left ">
+        <div class="clearfix p10 pl0 pr0">
+          <table class="table table-striped mb0">
+            <thead>
+              <tr>
+                <th width="100%" translate="main.appcoupons.table_name"></th>
+                <th align="right" nowrap><span translate2="main.appcoupons.table_views">Customers</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="app in $ctrl.apps.coupon track by app._id">
+                <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a></td>
+                <td nowrap align="right">{{app.views || 0}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>  
+
+  <div class="container-fluid mb20">
+    <div class="container">
+      <div class="clearfix mb10">    
+        <h3 class="">Popular Countries</h3>
+      </div>
+
+      <div class="b-rounded2 b-bordered2 shadow-emboss2 bg-light col-lg-12 intro align-left ">
+        <div class="clearfix p10 pl0 pr0">
+          <table class="table table-striped mb0">
+            <thead>
+              <tr>
+                <th width="100%" translate="main.appcoupons.table_name"></th>
+                <th align="right" nowrap><span translate2="main.appcoupons.table_views">Customers</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="app in $ctrl.apps.coupon track by app._id">
+                <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a></td>
+                <td nowrap align="right">{{app.views || 0}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>  
+
+  <div class="container-fluid mb20">
+    <div class="container">
+      <div class="clearfix mb10">    
+        <h3 class="">Popular Sources</h3>
+      </div>
+
+      <div class="b-rounded2 b-bordered2 shadow-emboss2 bg-light col-lg-12 intro align-left ">
+        <div class="clearfix p10 pl0 pr0">
+          <table class="table table-striped mb0">
+            <thead>
+              <tr>
+                <th width="100%" translate="main.appcoupons.table_name"></th>
+                <th align="right" nowrap><span translate2="main.appcoupons.table_views">Customers</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="app in $ctrl.apps.coupon track by app._id">
+                <td width="100%"><a href ui-sref="studio({app_id: app._id})">{{app.manifest.name || 'Untitled'}}</a></td>
+                <td nowrap align="right">{{app.views || 0}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>  
+</div>
+

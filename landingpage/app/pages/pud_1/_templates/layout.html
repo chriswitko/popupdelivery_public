@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><![endif]-->
+<html lang="{{translate.language_short}}" ng-app="app" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths ng-scope gr__localhost" xmlns:cc="http://creativecommons.org/ns#"><!--<![endif]-->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# medium-com: http://ogp.me/ns/fb/medium-com#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>PopUpDelivery</title>
+  <link rel="canonical" href="https://popupdelivery.com/">
+  <meta property="og:title" content="PopUpDelivery">
+  <meta property="og:site_name" content="PopUpDelivery">
+  <meta property="og:url" content="https://popupdelivery.com/">
+  <meta property="og:image" content="https://s3.amazonaws.com/popupdelivery/assets/img_reminder.png">
+  <meta property="og:description" content="We deliver tools to boost your online store. We help your customers to buy your products faster and deliver new leads.">
+  <meta name="twitter:description" content="We deliver tools to boost your online store. We help your customers to buy your products faster and deliver new leads.">
+  <meta name="twitter:image:src" content="https://s3.amazonaws.com/popupdelivery/assets/img_reminder.png">
+  <meta name="description" content="We deliver tools to boost your online store. We help your customers to buy your products faster and deliver new leads.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../vendor/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="../vendor/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/bootstrap-additions/bootstrap-additions.min.css">
+  <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="../assets/css/min/app.css">
+</head>
+<body translate-cloak="" data-gr-c-s-loaded="true" class="">
+  {% block content %} {% endblock %}
+  
+  <script src="../vendor/html5-boilerplate/js/modernizr-2.8.3.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/cookies/cookies.js"></script>
+  <script src="../vendor/languages/jquery.language.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../vendor/smooth-scroll/smooth-scroll.min.js"></script>
+  
+  <script src="../assets/js/main.js"></script>
+  
+  <script>
+    smoothScroll.init();
+  </script>  
+
+  <script>
+    // init intercom
+    window.intercomSettings = {
+      app_id: "fc90noyd",
+      language_override: window.popupLang || '{{translate.language_short}}'
+    };    
+
+    window.userData = {};
+  </script>
+  
+  <!--<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fc90noyd';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>-->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83992840-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script>
+    window.popupDeliverySettings = {
+      demo: true
+    };
+  </script>
+
+  <script>(function(){var w=window;var pud=w.PopUpDelivery;if(typeof pud==="function"){pud.run('boot', popupDeliverySettings);}else{var d=document;var i=w.PopUpDelivery;w.PopUpDelivery=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://s3.amazonaws.com/popupdelivery/js/pixel.v3.min.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>		
+</body>
+</html>

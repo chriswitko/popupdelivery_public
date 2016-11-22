@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PopupDelivery.com - signup</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/spectre.css">
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/animated.css">
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/signup.popup.default.css">
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/theme.black.css">
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/bg.light.css">
+	  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/font.lato.css">
+  <style>
+  iframe::-webkit-scrollbar {  
+    display: none;
+  }      
+  </style>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>
+    var modal_type = 'resize_popup';
+		var modal_width = '600px';
+    
+    function refreshImagePopup(action) {
+      setTimeout(function() {
+        refreshPopup(action);
+      }, 200);
+    }
+  </script>  
+</head>
+<body style="display:table;max-width:600px;width:100%;">
+
+<div id="tinylead-content-wrapper" style="padding:25px;background:transparent;max-width:600px;width:100%">
+  <img class="close-button" src="https://s3.amazonaws.com/popupdelivery/assets/close75.png" width="25" style="position:absolute;top:0;right:0;z-index:100;"/>
+  <div id="tinylead-content-wrapper2" class="minwidth animated bounceInDown" style="display:table;">
+    <form id="tinylead-form">
+      <div class="form-group lead-img" style="margin-bottom:0"><img class="img-responsive lazy" style="margin-left:auto;margin-right:auto;" src="https://s3.amazonaws.com/popupdelivery/public%2F4a4b2c34-11e5-4994-ad2a-52568a837647.jpeg"/></div>
+      <style>
+      	.form-group:last-child {
+      		margin-bottom: 0!important;
+      	} 
+      </style>
+        <div class="empty" style="margin-top:20px">
+          <div class="clearfix lead-view-front">
+            <div class="form-group lead-summary">
+              <h4 class="m0">
+                <p>Be the first to receive discounts, coupons and sales reminders</p>
+      
+              </h4>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email"><strong i18n="n_email_html"></strong></label>
+              <input class="form-input input-lg" type="email" id="email" name="email" autocomplete="off" i18n="n_email_placeholder" placeholder="" value="" />
+            </div>
+            <div class="form-group lead-action">
+              <button 
+              type="button" 
+              class="btn btn-lg btn-primary btn-submit" 
+                  onclick="sendData()"
+              >Save</button>
+            </div>
+            <div class="form-group lead-footer">
+              <p class="m0">I have read and agree with the Terms and Privacy Policy</p>
+            </div>
+          </div>
+        </div>
+      
+    </form>
+  </div>
+</div>
+
+<script>
+
+var i18n = {};
+    i18n.en = {
+      'n_email_html': 'Email',
+      'n_email_placeholder': 'Enter your email address',
+      'n_fullname_html': 'First & Last Name',
+      'n_fullname_placeholder': 'Enter your first & last Name',
+      'n_gender_html': 'Gender',
+      'n_gender_male_html': 'Male',
+      'n_gender_female_html': 'Female'
+    };
+
+    i18n.pl = {
+      'n_email_html': 'E-mail',
+      'n_email_placeholder': 'Wpisz swój adres email',
+      'n_fullname_html': 'Imię i Nazwisko',
+      'n_fullname_placeholder': 'Wpisz swoje imię i nazwisko',
+      'n_gender_html': 'Płeć',
+      'n_gender_male_html': 'Mężczyzna',
+      'n_gender_female_html': 'Kobieta'
+    };
+
+    var lang = window.navigator.languages ? window.navigator.languages[0] : null;
+        lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+    if (lang.indexOf('-') !== -1)
+        lang = lang.split('-')[0];
+
+    if (lang.indexOf('_') !== -1)
+        lang = lang.split('_')[0];      
+
+        lang = i18n[lang] ? lang : 'en'; 
+
+$('[i18n]').each(function(i, el) {
+  if($(el).attr('i18n').indexOf('_html') > -1) {
+    $(el).html(i18n[lang][$(el).attr('i18n')]);
+  }
+  if($(el).attr('i18n').indexOf('_placeholder') > -1) {
+    $(el).attr('placeholder', i18n[lang][$(el).attr('i18n')]);
+  }
+});
+
+var content_element = document.getElementById('tinylead-content-wrapper');
+
+var imgs = document.images,
+    len = imgs.length,
+    counter = 0;
+
+function tinyLeadGetSize(callback) {
+  var body = window.document.body, doc = window.document.documentElement, documentWidth = Math.max(body.scrollWidth, doc.scrollWidth, body.offsetWidth, doc.offsetWidth, doc.clientWidth),
+      documentHeight = doc.scrollHeight,//Math.max(body.scrollHeight, doc.scrollHeight, body.offsetHeight, doc.offsetHeight, doc.clientHeight),
+      viewportWidth = window.innerWidth || doc.clientWidth || body.clientWidth,
+      viewportHeight = window.innerHeight || doc.clientWidth || body.clientWidth;
+  var workaround = window.setTimeout(function() {
+    workaround = null;
+    window.clearTimeout(workaround);
+    callback(documentWidth, documentHeight, viewportWidth, viewportHeight);
+  }, 100);
+}
+
+function sendMessage(action) {
+  tinyLeadGetSize(function(documentWidth, documentHeight, viewportWidth, viewportHeight) {
+    try {
+      window.parent.postMessage({type: modal_type, value: {modal_width: modal_width, width: content_element.clientWidth, height: documentHeight, action: action, has_hero: $('.lead-img').length}},"*");
+    } catch(e) {
+      window.parent.postMessage({type: modal_type, value: {modal_width: modal_width, width: content_element.clientWidth, height: documentHeight, action: action, has_hero: $('.lead-img').length}},"*");
+    }
+  });
+}
+
+function refreshPopup(action) {
+  if($('.lead-img').length) {
+    if(action === 'image_loaded' || action === 'resize') {
+      sendMessage(action);
+    }
+  } else {
+    if(action === 'display' || action === 'done' || action === 'image_loaded' || action === 'resize') {
+      sendMessage(action);
+    }
+  }
+}
+
+var close = document.getElementsByClassName("close-button");
+
+var closeThisApp = function() {
+  if (window.self == window.top) {
+    if (this.href)
+      return true;
+    else
+      window.history.back();
+  } else {
+    try {
+      window.parent.formFrameClosed();
+      if (window.parent) {
+        window.parent.postMessage("close", "*");
+      }
+    } catch (e) {
+      if (window.parent) {
+        window.parent.postMessage("close", "*");
+      }
+    }
+    return false;
+  }  
+};
+
+[].forEach.call(close, function(el) {
+  el.onclick = function() {
+    closeThisApp();
+  };
+});
+
+function tinyLeadGetParameterByName(name, url) {
+	if (!url) {
+		url = location.href;
+	}
+	name = name.replace(/[\[\]]/g, "\\$&");
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+	if (!results) {
+		return null;
+	}
+	if (!results[2]) {
+		return '';
+	}
+	return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+function sendData() {
+  var f = {
+    cookie_id: tinyLeadGetParameterByName('cookie_id'),
+    app_id: '57dbb8b5fe91975eb854c42f',
+    user_id: '57dbb8435b8c185e9e5470b4',
+    site_id: tinyLeadGetParameterByName('site_id')
+  };
+  
+  if($('#email').val()) {f.email = $('#email').val();}
+  if($('#name').val()) {f.fullname = $('#name').val();}
+  if($('input:radio[name=gender]:checked').val()) {f.gender = $('input:radio[name=gender]:checked').val();}
+  
+  $.ajax({
+    type: "POST",
+    url: 'https://api.popupdelivery.com/api/customers',
+    data: f,
+    success: function() {
+      closeThisApp();
+        sendInsights('save');
+    }
+  });  
+}
+
+  function sendInsights(action) {
+    if(!action) {
+      return;
+    }
+
+    var f = {
+      cookie_id: tinyLeadGetParameterByName('cookie_id'),
+      app_id: '57dbb8b5fe91975eb854c42f',
+      user_id: '57dbb8435b8c185e9e5470b4'
+    };
+
+    f.action = action;
+    
+    $.ajax({
+      type: 'POST',
+      url: 'https://api.popupdelivery.com/api/insights',
+      data: f,
+      success: function() {
+      }
+    });  
+  }
+
+function load() {
+	refreshPopup('image_loaded');
+}
+
+function loadResize() {
+  refreshPopup('resize');
+}
+
+$(window).resize(function() {
+  loadResize();
+});
+
+$(window).load(function() {
+  load();
+      sendInsights('view');
+});
+
+</script>  
+
+
+</body>
+</html>

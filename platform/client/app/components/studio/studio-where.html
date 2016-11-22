@@ -1,0 +1,79 @@
+<uib-accordion close-others="true" class="hide">
+  <div uib-accordion-group is-open="vm.apps[vm.app.app_type].sections.design.is_open" class="panel-default" ng-if="vm.apps[vm.app.app_type].sections.enabled.indexOf('design') > -1">
+    <uib-accordion-heading>
+      <div class="clearfix p10tb" ng-click="vm.markAsOpen('design')">
+        <h4 class="m0">
+          <strong><i class="fa fa-fw fa-check-circle" ng-class="{'color-green': vm.opened.design, 'color-silver': !vm.opened.design}"></i> <span translate="main.studio.design_your_app"></span></strong>
+        </h4>
+      </div>
+    </uib-accordion-heading>          
+  </div>
+  <div uib-accordion-group is-open="vm.apps[vm.app.app_type].sections.where.is_open" class="panel-default" ng-if="vm.apps[vm.app.app_type].sections.enabled.indexOf('where') > -1">
+    <uib-accordion-heading>
+      <div class="clearfix p10tb" ng-click="vm.markAsOpen('where')">
+        <h4 class="m0">
+          <strong><i class="fa fa-fw fa-check-circle" ng-class="{'color-green': vm.opened.where, 'color-silver': !vm.opened.where}"></i> <span translate="main.studio.where"></span></strong>
+        </h4>
+      </div>
+    </uib-accordion-heading>          
+    <ul class="list-group mb0">
+      <li class="list-group-item" ng-class="{active: vm.app.manifest.where === 'all'}" ng-click="vm.app.manifest.where = 'all'" ng-if="vm.apps[vm.app.app_type].sections.where.fields.indexOf('all') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="where" id="where_all" value="all" ng-model="vm.app.manifest.where" ng-click="vm.saveApp({doNotRefresh: true})">
+            <strong translate="main.studio.where_all"></strong>
+            <p class="help-line color-gray" translate="main.studio.where_all_more"></p>
+          </label>
+        </div>              
+      </li>
+      <li class="list-group-item" ng-class="{active: vm.app.manifest.where === 'hp'}" ng-click="vm.app.manifest.where = 'hp'" ng-if="vm.apps[vm.app.app_type].sections.where.fields.indexOf('hp') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="where" id="where_homepage" value="hp" ng-model="vm.app.manifest.where" ng-click="vm.saveApp({doNotRefresh: true})">
+            <strong translate="main.studio.where_home"></strong>
+            <p class="help-line color-gray" translate="main.studio.where_home_more"></p>
+          </label>
+        </div>              
+      </li>
+      <li class="list-group-item" ng-class="{active: vm.app.manifest.where === 'custom'}" ng-click="vm.app.manifest.where = 'custom'" ng-if="vm.apps[vm.app.app_type].sections.where.fields.indexOf('custom') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="where" id="where_custom" value="custom" ng-model="vm.app.manifest.where" ng-click="vm.saveApp({doNotRefresh: true})">
+            <strong><span translate="main.studio.where_products"></span></strong>
+            <p class="help-line color-gray" translate="main.studio.where_products_more"></p>
+          </label>
+        </div>              
+        <div class="clearfix animated slideInDown" ng-if="vm.app.manifest.where === 'custom'">
+          <div class="clearfix mb20">
+            <div class="input-group" style="width:100%">
+              <p translate="main.products.segments"></p>
+              <select ng-model="vm.app.manifest.where_segment" class="form-control" style="width:100%">
+                <option value="selected">{{ 'main.products.segments_selected' | translate:'{ count: ' + vm.app.products.length + ' }' }}</option>
+                <option value="all">{{ 'main.products.segments_all' | translate:'{ count: ' + vm.user.feed.total_products + ' }' }}</option>
+                <option value="no_availability">{{ 'main.products.segments_no_availability' | translate:'{ count: ' + vm.user.feed.total_products_unavailable + ' }' }}</option>
+              </select>
+            </div>
+          </div>
+          <products-table ng-if="vm.app.manifest.where_segment === 'selected'" embedded="true" search="true" selected-products="vm.app.products" products="vm.products" handle-search-query="vm.getProducts({q: q})" bg-color="bg-white"></products-table>
+        </div>
+      </li>
+      <li class="list-group-item" ng-class="{active: vm.app.manifest.where === 'custom_url'}" ng-click="vm.app.manifest.where = 'custom_url'" ng-if="vm.apps[vm.app.app_type].sections.where.fields.indexOf('custom_url') > -1">
+        <div class="radio">
+          <label>
+            <input type="radio" name="where" id="where_custom_url" value="custom_url" ng-model="vm.app.manifest.where" ng-click="vm.saveApp({doNotRefresh: true})">
+            <strong><span translate="main.studio.where_custom_url"></span></strong>
+            <p class="help-line color-gray" translate="main.studio.where_custom_url_more"></p>
+          </label>
+        </div>              
+        <div class="clearfix animated slideInDown" ng-if="vm.app.manifest.where === 'custom_url'">
+          <div class="clearfix mb20">
+            <div class="input-group" style="width:100%">
+              <p translate="main.studio.where_custom_url_label"></p>
+              <input type="text" ng-model="vm.app.manifest.where_custom_url" class="form-control" style="width:100%"/>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</uib-accordion>

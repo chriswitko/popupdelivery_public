@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="clearfix">
+    <div class="row">
+      <h4 class="mb20" translate="main.customers.integrate_title"></h4>
+
+      <div class="clearfix bg-snow shadow-subtle p10" ng-class="{'d-disabled': !integration.enabled}" ng-repeat="(k, integration) in customersIntegrationsVm.availableIntegrations track by $index">
+        <table width="100%">
+          <tr>
+            <td width="70" align="center" nowrap>
+              <img width="50" ng-src="{{integration.icon}}"/>
+            </td>
+            <td>
+              <h4 class="fw700">{{integration.name}}</h4>
+              <p class="small" ng-if="!integration.active" translate="main.customers.integrate_{{k}}_desc"></p>
+              <p class="small" ng-if="integration.active"><span translate="main.customers.status_label"></span>: <span ng-if="integration.status" class="color-green" translate="main.customers.active_label"></span><span ng-if="!integration.status" class="color-ui-negative" translate="main.customers.inactive_label"></span><span ng-if="integration.last_update_at">&middot; <span translate="main.customers.last_update_label"></span>: 1 day ago</span></p>
+            </td>
+            <td align="right" width="120" nowrap>
+              <div ng-if="integration.enabled">
+                <a href class="btn btn-default" ng-if="integration.active" ng-click="customersIntegrationsVm.disableIntegration(integration)" translate="main.customers.disable_btn"></a>
+                <a href class="btn btn-primary" ng-if="!integration.active" ng-click="customersIntegrationsVm.enableIntegration(integration)">&plus; <span translate="main.customers.integrate_btn"></span></a>
+              </div>
+              <div ng-if="!integration.enabled">
+                <a href class="btn btn-default" ng-disabled="true" translate="main.customers.unavailable_btn"></a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+    </div>  
+  </div>
+
+</div>
+
+<script type="text/ng-template" id="integrationModal.html">
+  <form name="integrateForm" novalidate>
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">{{$ctrl.integration.name}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <div class="alert alert-danger" ng-if="$ctrl.error">
+        <p translate="main.customers.integration_error"></p>
+      </div>
+      <div class="form-group" ng-repeat="(k, v) in $ctrl.integration.fields track by $index">
+        <label>{{v.label}}</label>
+        <input required autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control" type="{{v.type}}" ng-model="v.value" value="{{v.value}}" placeholder="{{v.placeholder}}" name="{{k}}" ng-readonly="v.readonly"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-disabled="integrateForm.$invalid" ng-click="$ctrl.enable()" translate="main.customers.enable_btn"></button>
+      <button class="btn btn-default" type="button" ng-click="$ctrl.cancel()" translate="main.customers.cancel_btn"></button>
+    </div>
+  </form>
+</script>

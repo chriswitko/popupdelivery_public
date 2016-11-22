@@ -1,0 +1,90 @@
+body {
+	background-color: transparent;
+}
+
+.reminder-button-area {
+	clear:both;
+	{{#ifCond app.design.position '==' 'right'}}
+	float:right;
+	{{#if app.design.margin}}
+	margin-right: {{app.design.margin}}px;
+	{{/if}}
+	{{/ifCond}}
+	{{#ifCond app.design.position '==' 'left'}}
+	float:left;
+	{{#if app.design.margin}}
+	margin-left: {{app.design.margin}}px;
+	{{/if}}
+	{{/ifCond}}
+	width:100%;
+	display:block;
+	padding-top:45px;
+	width:300px;
+}
+
+.reminder-button-area .title {
+	cursor: pointer;
+	font-family: Arial;
+	display: block;
+	float: right;
+	clear: both;
+	margin-right: 20px;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	{{#ifCond app.design.size '==' 'regular'}}
+	font-size: 18px;
+	padding: 10px 15px;
+	{{/ifCond}}
+	{{#ifCond app.design.size '==' 'small'}}
+	font-size: 15px;
+	padding: 5px 10px;
+	{{/ifCond}}
+}
+
+#reminder_content {
+	clear: both;
+	float: left;
+	width: 100%;
+	display: none;
+	background-color: white;
+	box-shadow: 0 -5px 5px -5px #333;
+	padding: 15px;
+}
+
+.tinylead-content-wrapper {
+	float:left;
+	display:block;
+	width:100%;
+}
+
+.item {
+	float: left;
+	display: block;
+	width: 130px;
+	text-align: center;
+}
+
+.item .item-img {
+	float: left;
+	display: block;
+	height: 170px;
+}
+
+p.item-body {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.tagline {
+	margin-bottom: 15px;
+}
+
+.tagline h5 {
+	margin: 0;
+	font-weight: 500;
+}
+
+.inactive, a.inactive, a.inactive:hover, a.inactive:active, a.inactive:link {
+	color: #d5d5d5!important;
+}    

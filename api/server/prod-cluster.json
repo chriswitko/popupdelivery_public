@@ -1,0 +1,19 @@
+[
+{
+  "name"      : "PROD_PUD_API",
+  "script"    : "./app.js",
+  "ignoreWatch" : ["[\\/\\\\]\\./", "node_modules"],
+  "instances" : 4,
+  "exec_mode"  : "cluster",
+  "max_memory_restart": "512M",
+  "merge_logs": true,
+  "env_production" : {
+    "NODE_ENV": "production",
+    "PORT": "3002"
+  },
+  "env" : {
+    "NODE_ENV": "production",
+    "PORT": "3002"
+  }
+}
+] 

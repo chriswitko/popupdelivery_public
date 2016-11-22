@@ -1,0 +1,37 @@
+<div class="container-fluid ">
+  <div class="container">
+    <div class="clearfix ">
+      <div class="clearfix">    
+        <div class="pull-left mt5">
+          <h3 class="" translate2="main.dashboard.overview">Overview <span class="badge bg-ui-negative">LIVE</span></h3>
+        </div>
+        <div class="btn-group pull-right mt20">
+          <label class="btn btn-default bg-light fw900" ng-model="checkModel.right" uib-btn-checkbox>Today</label>
+          <label class="btn btn-default" ng-model="checkModel.middle" uib-btn-checkbox>7 days</label>
+          <label class="btn btn-default" ng-model="checkModel.left" uib-btn-checkbox>30 days</label>
+        </div>
+      </div>
+      <hr class="mb0"/>
+    </div>
+  </div>
+</div>
+
+      
+<div class="container-fluid ">
+  <div class="container">
+    <div class="clearfix" style="border-bottom: 1px solid rgb(238, 238, 238)">
+      <div class="col-lg-4 bg-white">
+        <h1>{{dashboardStatsVm.stats.visitors || 0}}</h1>
+        <p class="color-slate"><span translate2="main.dashboard.stats_visitors">Visitors</span></p>
+      </div>
+      <div class="col-lg-4 bg-white">
+        <h1>{{dashboardStatsVm.stats.visitors || 0}}</h1>
+        <p class="color-slate"><span translate2="main.dashboard.stats_visitors_live">New Visitors</span></p>
+      </div>
+      <div class="col-lg-4 bg-white">
+        <h1>{{dashboardStatsVm.stats.customers || 0}}</h1>
+        <p class="color-slate"><span translate2="main.dashboard.stats_customers">Returning Visitors</span></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<navs></navs>
+
+<div class="container-fluid">
+  <div class="container container-fixed">
+
+    <div class="row pt40">
+      <div class="b-rounded shadow-close b-bordered shadow-emboss bg-light col-lg-push-1 col-lg-10 intro align-left">
+        <div class="clearfix p50">
+          <h3 class="align-left"><strong translate="main.install.title"></strong></h3>
+          <p translate="main.install.instructions_1"></p>
+          <p translate="main.install.instructions_2"></p>
+          <pre class="highlight">&lt;!-- PopUpDelivery Pixel --&gt;
+&lt;script&gt;
+  window.popupDeliverySettings = {
+    site_id: &#39;{{installVm.user._id}}&#39;
+  };
+&lt;/script&gt;
+&lt;script&gt;(function(){var w=window;var pud=w.PopUpDelivery;if(typeof pud===&quot;function&quot;){pud.run(&#39;boot&#39;, popupDeliverySettings);}else{var d=document;var i=w.PopUpDelivery;w.PopUpDelivery=i;function l(){var s=d.createElement(&#39;script&#39;);s.type=&#39;text/javascript&#39;;s.async=true;s.src=&#39;//s3.amazonaws.com/popupdelivery/js/pixel.v3.min.js&#39;;var x=d.getElementsByTagName(&#39;script&#39;)[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent(&#39;onload&#39;,l);}else{w.addEventListener(&#39;load&#39;,l,false);}}})()&lt;/script&gt;		
+&lt;!-- End PopUpDelivery Pixel --&gt;</pre>
+          <p translate="main.install.instructions_3"></p>
+          <div class="clearfix group-buttons mt50">
+            <a class="btn btn-lg btn-primary blue-button blue-button--active mb20" ui-sref="dashboard" translate="main.install.btn_verify">Verify Installation</a>
+            <a class="btn btn-lg btn-default blue-button mb20" ui-sref="dashboard" translate="main.install.btn_skip">Skip</a>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+  </div>
+</div>

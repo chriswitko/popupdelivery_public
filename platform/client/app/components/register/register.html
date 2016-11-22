@@ -1,0 +1,34 @@
+<navs></navs>
+
+<div class="container-fluid">
+  <div class="container">
+    <h1 class="fw900 fs6"><span translate="main.register.name"></span><span class="color-pink-light">.</span></h1>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container container-fixed">
+      
+    <div class="row pt40">
+      <div class="col-lg-6">
+        <div class="b-rounded shadow-close b-bordered shadow-emboss bg-light intro">
+          <form name="registerForm" novalidate class="mb0 p30" ng-submit="registerVm.register()">
+            <div class="alert alert-danger" ng-if="registerVm.errorMessage">
+              <span translate="main.register.error"></span>: {{registerVm.errorMessage | translate}}
+            </div>
+            <div class="form-group mb30">
+              <label class="pull-left" for="email" translate="main.register.enter_email"></label>
+              <input type="email" required ng-click="registerVm.errorMessage = ''" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" class="form-control input-lg" id="email" placeholder="Email" ng-model="registerVm.user.email">
+            </div>
+            <div class="clearfix group-buttons">
+              <button type="submit" class="btn btn-lg btn-primary green-button green-button--active mb20" ng-disabled="registerForm.$invalid" ng-click="registerVm.register()" translate="main.register.btn_getstarted"></button>
+            </div>
+            <tagline-get-started></tagline-get-started>
+          </form>
+        </div>
+      </div>
+    </div>  
+
+    <footer></footer>
+  </div>
+</div>

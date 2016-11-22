@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  {{> reminderhead}}
+  <style>
+    {{> remindercss}}
+  </style>
+</head>
+
+<body>
+	<div id="tinylead-content-wrapper" class="tinylead-content-wrapper">
+		<div class="col-xs-12">
+			<div class="reminder-button-area">
+				<div class="title" onclick="toggleReminder()">
+					<span i18n="reminder_badge_html"></span> <span id="counter" style="display:none"></span> <span style="float:right;display:none;margin-left:10px;" id="close-button">&times;</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div id="reminder_content">
+				<div id="with_products" class="col-xs-12 tagline" style="display:none;margin-bottom:5px;"><h5><strong i18n="reminder_title_html"></strong> &middot; <a class="inactive" href="javascript:clearAll()" i18n="reminder_clear_all_html"></a></h5></div>
+				<div id="no_products" class="col-xs-12 tagline" style="margin-bottom:0;display:none;"><h5 i18n="reminder_missing_html"></h5></div>
+        {{#if demo}}
+        <p class="inactive" i18n="reminder_demo_only_html"></p>
+        {{/if}}
+				<div id="owl-demo" class="owl-carousel float-left"></div>			
+			</div>
+		</div>
+	</div>
+
+  <!-- SCRIPTS -->
+	<script src="https://s3.amazonaws.com/popupdelivery/js/modernizr.js"></script>   	
+	<script src="https://s3.amazonaws.com/popupdelivery/js/js.cookie.js"></script>
+	<script src="https://s3.amazonaws.com/popupdelivery/js/jquery-1.11.0.min.js"></script>
+	<script src="https://s3.amazonaws.com/popupdelivery/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="https://s3.amazonaws.com/popupdelivery/js/lodash.min.js"></script>
+	<script src="https://s3.amazonaws.com/popupdelivery/js/popper.js"></script>
+	<script src="https://s3.amazonaws.com/popupdelivery/js/owl.js"></script>
+  
+  <script>
+    {{> reminderjs}}
+  </script>
+</body>
+</html>

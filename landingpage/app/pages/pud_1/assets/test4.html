@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>test1</title>
+		<style>
+			body {
+				padding: 50px;
+				background: url(https://s3.amazonaws.com/popupdelivery/assets/gray-bg.png) repeat top left;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- PopUpDelivery Pixel -->
+		<!--<script data-site-id="57cecbdef3f80b0e7233f661" type="text/javascript" src="/assets/js/demo.js"></script>-->
+		<!-- End PopUpDelivery Pixel -->
+
+		<script>
+			function onLoad () {
+				if(PopUpDelivery) {
+					PopUpDelivery.run('open_reminder', {app_id: tinyLeadGetParameterByName('app_id')})
+				}
+			}
+		</script>
+
+		<script>
+			function tinyLeadGetParameterByName (name, url) {
+				if (!url) {
+					url = location.href
+				}
+				name = name.replace(/[\[\]]/g, "\\$&")
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)")
+				var results = regex.exec(url)
+				if (!results) {
+					return null
+				}
+				if (!results[2]) {
+					return ''
+				}
+				return decodeURIComponent(results[2].replace(/\+/g, " "))
+			}			
+
+			window.popupDeliverySettings = {
+				app_id: tinyLeadGetParameterByName('app_id'),
+				demo: true,
+				language: tinyLeadGetParameterByName('language'),      
+				events: {
+					onLoad: onLoad
+				}
+			};
+
+		</script>
+
+		<script>(function(){var w=window;var pud=w.PopUpDelivery;if(typeof pud==="function"){pud.run('boot', popupDeliverySettings);}else{var d=document;var i=w.PopUpDelivery;w.PopUpDelivery=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://s3.amazonaws.com/popupdelivery/js/pixel.v3.min.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>		
+	</body>
+</html>

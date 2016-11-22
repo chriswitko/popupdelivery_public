@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<title>PopupDelivery.com - {{app.app_type}}</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/spectre.css{{#if demo}}?ts={{ts}}{{/if}}">
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/animated.css{{#if demo}}?ts={{ts}}{{/if}}">
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/{{app.app_type}}.{{app.design.template}}.css{{#if demo}}?ts={{ts}}{{/if}}">
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/theme.{{app.design.theme}}.css{{#if demo}}?ts={{ts}}{{/if}}">
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/bg.{{app.design.background}}.css{{#if demo}}?ts={{ts}}{{/if}}">
+{{#ifCond app.design.font '==' 'lato'}}
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+{{/ifCond}}
+{{#ifCond app.design.font '==' 'playfair'}}
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&subset=latin-ext" rel="stylesheet">
+{{/ifCond}}
+{{#ifCond app.design.font '==' 'merriweather'}}
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900&subset=latin-ext" rel="stylesheet">
+{{/ifCond}}
+{{#ifCond app.design.font '==' 'crete'}}
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round&subset=latin-ext" rel="stylesheet">
+{{/ifCond}}
+{{#ifCond app.design.font '==' 'ptsansnarrow'}}
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin-ext" rel="stylesheet">
+{{/ifCond}}
+<link rel="stylesheet" href="https://s3.amazonaws.com/popupdelivery/css/font.{{app.design.font}}.css">

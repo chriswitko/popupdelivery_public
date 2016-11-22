@@ -1,0 +1,25 @@
+<!--<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="dashboard" aria-controls="preview" translate="main.dashboard.tabdashboard"></a></li>
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="customers.list" aria-controls="preview" translate="main.customers.name"></a></li>
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="products.list" aria-controls="preview" translate="main.products.name"></a></li>
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="products.feed" aria-controls="design" role="tab" translate="main.products.tabfeedsettings"></a></li>
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="customers.integrations" aria-controls="design" role="tab" translate="main.customers.tabintegrations"></a></li>
+  <li role="presentation" ui-sref-active-eq="active"><a href ui-sref="settings.personal" aria-controls="design" role="tab" translate="main.navs.settings"></a></li>
+</ul>-->
+
+<div class="module-header bg-highlight">
+  <ul class="list-unstyled list-inline list-internal-nav mb0">
+    <li>
+      <a href class="badge" style="font-size:16px;line-height:22px;" ui-sref="home.index">Dashboard</a>
+    </li>
+    <li>
+      <a href class="badge" ui-sref-active-eq="active" style="font-size:16px;line-height:22px;" ui-sref="home.index">Overview</a>
+    </li>
+    <li>
+      <a href class="badge" ui-sref-active="active" style="font-size:16px;line-height:22px;"><i class="fa fa-fw fa-question-circle"></i> Help</a>
+    </li>
+    <li class="pull-right">
+      <a ng-if="!trialEndsVm.user.paid && trialEndsVm.user.days_left <= 14" href ui-sref="settings.billing" class="badge" style="font-size:16px;line-height:22px;"><i class="fa fa-fw fa-gift"></i> Upgrade</a>
+    </li>
+  </ul>
+</div>

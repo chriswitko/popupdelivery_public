@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row" ng-if="!startVm.status">
+          <div class="col-lg-12 intro align-center" translate="main.start.loading"></div>
+        </div>
+        <div class="row" ng-if="startVm.status === 'LOADED'">
+          <div class="col-lg-4 intro align-center">
+            <div class="panel panel-default">
+              <div class="panel-body bg-light">
+                <app-reminder-icon></app-reminder-icon>
+              </div>
+              <div class="panel-footer p0">
+                <div class="clearfix">
+                  <div ng-if="startVm.user.feed.total_products">
+                    <a class="btn btn-lg btn-primary btn-block br0 b0" href ng-click="startVm.createAppReminder()" ng-if="!startVm.apps.reminder[0]._id" translate="main.start.btn_activate"></a>
+                    <a class="btn btn-lg btn-primary btn-block br0 b0" href ui-sref="studio({app_id: startVm.apps.reminder[0]._id})" ng-if="startVm.apps.reminder[0]._id" translate="main.start.btn_edit"></a>
+                  </div>
+                  <div ng-if="!startVm.user.feed.total_products">
+                    <a class="btn btn-lg btn-primary btn-block br0 b0" href ui-sref="products.feed" translate="main.start.btn_activate"></a>
+                  </div>
+                </div>
+              </div>
+            </div>                
+          </div>
+          <div class="col-lg-4 intro align-center">
+            <div class="panel panel-default">
+              <div class="panel-body bg-light">
+                <app-coupons-icon></app-coupons-icon>
+              </div>
+              <div class="panel-footer p0">
+                <div class="clearfix">
+                  <a class="btn btn-lg btn-primary btn-block br0 b0" href ng-click="startVm.createAppCoupon()" ng-if="!startVm.apps.coupon[0]._id" translate="main.start.btn_create_coupon"></a>
+                  <a class="btn btn-lg btn-primary btn-block br0 b0" href ui-sref="coupons" ng-if="startVm.apps.coupon[0]._id" translate="main.start.btn_edit"></a>
+                </div>
+              </div>
+            </div>                
+          </div>
+          <div class="col-lg-4 intro align-center">
+            <div class="panel panel-default">
+              <div class="panel-body bg-light">
+                <app-signup-icon></app-signup-icon>
+              </div>
+              <div class="panel-footer p0">
+                <div class="clearfix">
+                  <a class="btn btn-lg btn-primary btn-block br0 b0" href ng-click="startVm.createAppListReminder()" ng-if="!startVm.apps.signup[0]._id" translate="main.start.btn_activate"></a>
+                  <a class="btn btn-lg btn-primary btn-block br0 b0" href ui-sref="studio({app_id: startVm.apps.signup[0]._id})" ng-if="startVm.apps.signup[0]._id" translate="main.start.btn_edit"></a>
+                </div>
+              </div>
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{% macro active(activePage='home', translate={}) %}
+<p>
+  <a href="../en">EN</a>
+  &nbsp;|&nbsp;
+  <a href="../pl">PL</a>
+</p>
+<nav>
+  <a href="index.html" class="{%if activePage == 'home' %} active {% endif %}">{{translate.home}}</a>
+  <a href="about.html" class="{%if activePage == 'about' %} active {% endif %}">{{translate.about}}</a>
+  <a href="#" class="{%if activePage == 'contact' %} active {% endif %}">{{translate.contact}}</a>
+</nav>
+{% endmacro %}

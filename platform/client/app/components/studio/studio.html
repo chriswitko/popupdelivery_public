@@ -1,0 +1,39 @@
+<form form-on-change="$ctrl.saveApp()" ng-submit="$ctrl.saveApp()" auto-save-off auto-save-model="$ctrl.app" auto-save-fn="$ctrl.saveApp" auto-save-mode="interval" auto-save-interval="10000" style="display:flex;flex:1;width:100%;height:100%;min-height:100%;;overflow-y:scroll;">  
+  <div class="flexi" style="flex-direction:column;width:100%;display:flex;overflow-y:hidden;">
+    <studio-header app="$ctrl.app" on-save="$ctrl.saveApp()" on-deploy="$ctrl.deployApp()" on-deactivate="$ctrl.deactivateApp()"></studio-header>
+
+
+    <div style="flex:1 100%;flex-direction:column;height:calc(100%);width:100%;overflow-y:hidden;">
+      <studio-tabs active-tab="$ctrl.activeTab"></studio-tabs>
+
+      <div class="container-fluid" style="display:flex;flex:1;height:100%;overflow-y:hidden;">
+        <div class="row" style="flex:1;height:calc(100% - 132px);min-height:calc(100% - 112px);overflow-y:scroll;">
+          
+          <div class="col-lg-12">
+            <div ng-switch="$ctrl.activeTab">
+              <div ng-switch-when="who"><studio-who></studio-who></div>
+              <div ng-switch-when="where"><studio-where></studio-where></div>
+              <div ng-switch-default><studio-design></studio-design></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-highlight shadow-subtle" style="flex:1;width:400px;max-width:400px;overflow-y:scroll;overflow-x:hidden;" ng-if="$ctrl.activeTab === 'design'">
+    <studio-pilot app="$ctrl.app" on-save="$ctrl.saveApp()"></studio-pilot>
+  </div>
+</form>
+
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title" translate="main.studio.modal_published_title"></h3>
+  </div>
+  <div class="modal-body" id="modal-body" translate="main.studio.modal_published_body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.cancel()">OK</button>
+  </div>
+</script>

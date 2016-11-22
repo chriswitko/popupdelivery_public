@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	{{> signuphead}}
+  <style>
+    iframe::-webkit-scrollbar {  
+      display: none;
+    }      
+  </style>
+</head>
+
+<body style="display:table;max-width:{{#if app.design.width}}{{app.design.width}}px{{else}}600px{{/if}};width:100%;">
+
+<div id="tinylead-content-wrapper" style="display:table;padding:25px;background:transparent;min-width:100%;max-width:{{#if app.design.width}}{{app.design.width}}px{{else}}600px{{/if}};">
+  <img class="close-button" src="https://s3.amazonaws.com/popupdelivery/assets/close75.png" width="25" style="position:absolute;top:0;right:0;z-index:100;"/>
+  <div id="tinylead-content-wrapper2" class="minwidth animated {{app.design.animation}}" style="display:table;width:100%;">
+    <form id="tinylead-form">
+      {{#if app.design.image_url}}
+      {{#if app.design.image_link}}
+      <div class="form-group lead-img" style="margin-bottom:0"><a target="_top" href="{{app.design.image_link}}"><img class="img-responsive lazy" style="margin-left:auto;margin-right:auto;" src="{{app.design.image_url}}"/></a></div>
+      {{else}}
+      <div class="form-group lead-img" style="margin-bottom:0"><img class="img-responsive lazy" style="margin-left:auto;margin-right:auto;" src="{{app.design.image_url}}"/></div>
+      {{/if}}
+      {{/if}}
+      {{> signupform}}
+    </form>
+  </div>
+</div>
+
+<script src="https://s3.amazonaws.com/popupdelivery/js/jquery-2.2.4.min.js"></script>
+
+<script>
+  {{> popupjs}}
+</script>  
+
+</body>
+</html>

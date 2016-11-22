@@ -1,0 +1,11 @@
+body {
+  background-color: transparent;
+}
+
+.lead-title h1, .lead-title h2, .lead-title h3, .lead-title h4, .lead-title h5 {
+  color: white!important;
+}
+
+#tinylead-content-wrapper {
+  background-color: #1F2D3D;
+}

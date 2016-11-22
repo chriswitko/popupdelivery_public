@@ -1,0 +1,24 @@
+.btn-submit {
+  background: #1F2D3D!important;
+  border-color: #1F2D3D!important; 
+}
+
+.btn-cancel {
+  color: #1F2D3D!important;
+}
+
+.reminder-button-area .title {
+  background: #1F2D3D!important;
+}
+
+#reminder_content {
+  border-top: 1px solid #1F2D3D;
+}
+
+#reminder_content a, #reminder_content a:hover, #reminder_content a:active, #reminder_content a:link {
+  color: #1F2D3D;
+}
+
+span.price {
+  color: #FF4949;
+}
